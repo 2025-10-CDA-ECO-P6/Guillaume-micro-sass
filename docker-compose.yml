@@ -1,0 +1,35 @@
+services:
+  database:
+    image: postgres:17
+    container_name: animanga-db
+    environment:
+      POSTGRES_DB: animanga
+      POSTGRES_USER: animanga_user
+      POSTGRES_PASSWORD: animanga_pass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  backend:
+    build: ./backend
+    container_name: animanga-backend
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://database:5432/animanga
+      SPRING_DATASOURCE_USERNAME: animanga_user
+      SPRING_DATASOURCE_PASSWORD: animanga_pass
+    depends_on:
+      - database
+
+  frontend:
+    build: ./frontend
+    container_name: animanga-frontend
+    ports:
+      - "4200:4200"
+    depends_on:
+      - backend
+
+volumes:
+  postgres_data:
