@@ -1,0 +1,120 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420">
+  <defs>
+    <pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8L8 0" stroke="#aaa" stroke-width="0.75" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="420" fill="white"/>
+  <text x="300" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#333">ADMIN — GESTION DU CATALOGUE</text>
+
+  <!-- Browser frame -->
+  <rect x="10" y="28" width="580" height="382" fill="white" stroke="#222" stroke-width="2"/>
+  <!-- Navbar -->
+  <rect x="10" y="28" width="580" height="28" fill="#f0f0f0" stroke="#222" stroke-width="1"/>
+  <text x="35" y="46" font-family="monospace" font-size="9" fill="#555">⚙ ADMIN</text>
+  <text x="265" y="46" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#222">NAKAMA</text>
+  <circle cx="570" cy="42" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Admin sidebar -->
+  <rect x="10" y="56" width="110" height="354" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="65" y="74" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="#333">ADMIN PANEL</text>
+  <line x1="15" y1="79" x2="115" y2="79" stroke="#ddd" stroke-width="0.75"/>
+  <rect x="10" y="82" width="110" height="22" fill="#333"/>
+  <text x="65" y="97" text-anchor="middle" font-family="monospace" font-size="8" fill="white">📋 Catalogue</text>
+  <line x1="15" y1="106" x2="115" y2="106" stroke="#ddd" stroke-width="0.5"/>
+  <text x="65" y="120" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">👥 Utilisateurs</text>
+  <line x1="15" y1="128" x2="115" y2="128" stroke="#ddd" stroke-width="0.5"/>
+  <text x="65" y="142" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">🏷️ Genres</text>
+  <line x1="15" y1="150" x2="115" y2="150" stroke="#ddd" stroke-width="0.5"/>
+  <text x="65" y="164" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">📊 Stats</text>
+
+  <!-- Contenu principal -->
+  <!-- Header avec bouton ajouter + filtres -->
+  <text x="132" y="73" font-family="monospace" font-size="10" font-weight="bold" fill="#222">CATALOGUE</text>
+  <rect x="460" y="60" width="118" height="22" fill="#333" stroke="#222" stroke-width="1"/>
+  <text x="519" y="75" text-anchor="middle" font-family="monospace" font-size="8" fill="white">+ Ajouter entrée</text>
+
+  <!-- Barre recherche + filtres -->
+  <rect x="130" y="88" width="220" height="18" fill="white" stroke="#333" stroke-width="1.5"/>
+  <text x="138" y="100" font-family="monospace" font-size="7.5" fill="#aaa">Rechercher...</text>
+
+  <rect x="358" y="88" width="55" height="18" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="385" y="100" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Tout ▾</text>
+  <rect x="418" y="88" width="55" height="18" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="445" y="100" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Anime ▾</text>
+
+  <!-- Table header -->
+  <rect x="130" y="112" width="452" height="22" fill="#333" stroke="#222" stroke-width="1"/>
+  <text x="155" y="127" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">IMAGE</text>
+  <text x="225" y="127" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">TITRE</text>
+  <text x="360" y="127" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">TYPE</text>
+  <text x="415" y="127" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">STATUT</text>
+  <text x="497" y="127" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">ACTIONS</text>
+
+  <!-- Table rows -->
+  <!-- Row 1 -->
+  <rect x="130" y="134" width="452" height="34" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="135" y="137" width="28" height="28" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="172" y1="143" x2="340" y2="143" stroke="#333" stroke-width="1.5"/>
+  <line x1="172" y1="156" x2="310" y2="156" stroke="#bbb" stroke-width="1"/>
+  <text x="360" y="153" font-family="monospace" font-size="7.5" fill="#555">Anime</text>
+  <text x="415" y="153" font-family="monospace" font-size="7.5" fill="#555">En cours</text>
+  <rect x="493" y="139" width="30" height="14" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="508" y="150" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="528" y="139" width="30" height="14" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="543" y="150" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Row 2 -->
+  <rect x="130" y="168" width="452" height="34" fill="#f9f9f9" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="135" y="171" width="28" height="28" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="172" y1="177" x2="340" y2="177" stroke="#333" stroke-width="1.5"/>
+  <line x1="172" y1="190" x2="290" y2="190" stroke="#bbb" stroke-width="1"/>
+  <text x="360" y="187" font-family="monospace" font-size="7.5" fill="#555">Manga</text>
+  <text x="415" y="187" font-family="monospace" font-size="7.5" fill="#555">Terminé</text>
+  <rect x="493" y="173" width="30" height="14" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="508" y="184" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="528" y="173" width="30" height="14" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="543" y="184" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Row 3 -->
+  <rect x="130" y="202" width="452" height="34" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="135" y="205" width="28" height="28" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="172" y1="211" x2="340" y2="211" stroke="#333" stroke-width="1.5"/>
+  <line x1="172" y1="224" x2="300" y2="224" stroke="#bbb" stroke-width="1"/>
+  <text x="360" y="221" font-family="monospace" font-size="7.5" fill="#555">Anime</text>
+  <text x="415" y="221" font-family="monospace" font-size="7.5" fill="#555">En cours</text>
+  <rect x="493" y="207" width="30" height="14" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="508" y="218" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="528" y="207" width="30" height="14" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="543" y="218" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Row 4 -->
+  <rect x="130" y="236" width="452" height="34" fill="#f9f9f9" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="135" y="239" width="28" height="28" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="172" y1="245" x2="340" y2="245" stroke="#333" stroke-width="1.5"/>
+  <line x1="172" y1="258" x2="320" y2="258" stroke="#bbb" stroke-width="1"/>
+  <text x="360" y="255" font-family="monospace" font-size="7.5" fill="#555">Manga</text>
+  <text x="415" y="255" font-family="monospace" font-size="7.5" fill="#555">Terminé</text>
+  <rect x="493" y="241" width="30" height="14" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="508" y="252" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="528" y="241" width="30" height="14" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="543" y="252" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Row 5 -->
+  <rect x="130" y="270" width="452" height="34" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="135" y="273" width="28" height="28" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="172" y1="279" x2="340" y2="279" stroke="#333" stroke-width="1.5"/>
+  <line x1="172" y1="292" x2="295" y2="292" stroke="#bbb" stroke-width="1"/>
+  <text x="360" y="289" font-family="monospace" font-size="7.5" fill="#555">Anime</text>
+  <text x="415" y="289" font-family="monospace" font-size="7.5" fill="#555">En cours</text>
+  <rect x="493" y="275" width="30" height="14" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="508" y="286" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="528" y="275" width="30" height="14" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="543" y="286" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Pagination -->
+  <text x="356" y="390" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">◀  1  2  3  ...  ▶</text>
+
+  <!-- Total -->
+  <text x="133" y="390" font-family="monospace" font-size="8" fill="#aaa">247 entrées</text>
+</svg>

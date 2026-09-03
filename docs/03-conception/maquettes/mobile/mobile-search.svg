@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8L8 0" stroke="#aaa" stroke-width="0.75" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="390" height="844" fill="white" stroke="#222" stroke-width="2" rx="12"/>
+  <text x="195" y="22" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#333">SEARCH — Mobile</text>
+
+  <!-- Status bar -->
+  <rect x="2" y="30" width="386" height="20" fill="#f0f0f0"/>
+  <line x1="2" y1="50" x2="388" y2="50" stroke="#ddd" stroke-width="0.5"/>
+  <text x="20" y="44" font-family="monospace" font-size="8" fill="#555">9:41</text>
+
+  <!-- Navbar -->
+  <rect x="2" y="50" width="386" height="40" fill="white"/>
+  <line x1="2" y1="90" x2="388" y2="90" stroke="#ddd" stroke-width="1"/>
+  <text x="195" y="75" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#333">RECHERCHE</text>
+
+  <!-- Search bar -->
+  <rect x="10" y="98" width="320" height="36" fill="white" stroke="#333" stroke-width="2"/>
+  <text x="24" y="120" font-family="monospace" font-size="8.5" fill="#aaa">Rechercher...</text>
+  <rect x="336" y="98" width="44" height="36" fill="#333" stroke="#222" stroke-width="1"/>
+  <text x="358" y="122" text-anchor="middle" font-family="monospace" font-size="9" fill="white">OK</text>
+
+  <!-- Filtres scrollables -->
+  <rect x="10" y="142" width="55" height="22" fill="#333" stroke="#222" stroke-width="1" rx="11"/>
+  <text x="37" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="white">Tout</text>
+  <rect x="72" y="142" width="60" height="22" fill="white" stroke="#555" stroke-width="1" rx="11"/>
+  <text x="102" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">Anime</text>
+  <rect x="140" y="142" width="60" height="22" fill="white" stroke="#555" stroke-width="1" rx="11"/>
+  <text x="170" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">Manga</text>
+  <rect x="208" y="142" width="68" height="22" fill="white" stroke="#555" stroke-width="1" rx="11"/>
+  <text x="242" y="157" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">Genre ▾</text>
+  <text x="375" y="157" font-family="monospace" font-size="10" fill="#bbb">›</text>
+
+  <!-- Grille 2 colonnes -->
+  <!-- Row 1 -->
+  <rect x="10" y="174" width="178" height="155" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="10" y="174" width="178" height="105" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="16" y1="286" x2="182" y2="286" stroke="#333" stroke-width="1.5"/>
+  <line x1="16" y1="300" x2="175" y2="300" stroke="#bbb" stroke-width="1"/>
+  <line x1="16" y1="312" x2="155" y2="312" stroke="#ddd" stroke-width="0.75"/>
+
+  <rect x="202" y="174" width="178" height="155" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="202" y="174" width="178" height="105" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="208" y1="286" x2="374" y2="286" stroke="#333" stroke-width="1.5"/>
+  <line x1="208" y1="300" x2="367" y2="300" stroke="#bbb" stroke-width="1"/>
+  <line x1="208" y1="312" x2="347" y2="312" stroke="#ddd" stroke-width="0.75"/>
+
+  <!-- Row 2 -->
+  <rect x="10" y="340" width="178" height="155" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="10" y="340" width="178" height="105" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="16" y1="452" x2="182" y2="452" stroke="#333" stroke-width="1.5"/>
+  <line x1="16" y1="466" x2="175" y2="466" stroke="#bbb" stroke-width="1"/>
+  <line x1="16" y1="478" x2="155" y2="478" stroke="#ddd" stroke-width="0.75"/>
+
+  <rect x="202" y="340" width="178" height="155" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="202" y="340" width="178" height="105" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="208" y1="452" x2="374" y2="452" stroke="#333" stroke-width="1.5"/>
+  <line x1="208" y1="466" x2="367" y2="466" stroke="#bbb" stroke-width="1"/>
+  <line x1="208" y1="478" x2="347" y2="478" stroke="#ddd" stroke-width="0.75"/>
+
+  <!-- Row 3 -->
+  <rect x="10" y="506" width="178" height="155" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="10" y="506" width="178" height="105" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="16" y1="618" x2="182" y2="618" stroke="#333" stroke-width="1.5"/>
+  <line x1="16" y1="632" x2="175" y2="632" stroke="#bbb" stroke-width="1"/>
+
+  <rect x="202" y="506" width="178" height="155" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="202" y="506" width="178" height="105" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="208" y1="618" x2="374" y2="618" stroke="#333" stroke-width="1.5"/>
+  <line x1="208" y1="632" x2="367" y2="632" stroke="#bbb" stroke-width="1"/>
+
+  <text x="195" y="690" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">↓ scroll</text>
+
+  <!-- Bottom nav -->
+  <line x1="2" y1="794" x2="388" y2="794" stroke="#ddd" stroke-width="1"/>
+  <rect x="2" y="794" width="386" height="48" fill="#f5f5f5"/>
+  <text x="50" y="812" text-anchor="middle" font-family="monospace" font-size="14" fill="#888">🏠</text>
+  <text x="140" y="812" text-anchor="middle" font-family="monospace" font-size="14" fill="#333">🔍</text>
+  <text x="250" y="812" text-anchor="middle" font-family="monospace" font-size="14" fill="#888">⭐</text>
+  <text x="340" y="812" text-anchor="middle" font-family="monospace" font-size="14" fill="#888">👤</text>
+  <text x="50" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Accueil</text>
+  <text x="140" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">Recherche</text>
+  <text x="250" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Recommandé</text>
+  <text x="340" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Profil</text>
+</svg>

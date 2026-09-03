@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="500" viewBox="0 0 800 500">
+  <defs>
+    <pattern id="dots" patternUnits="userSpaceOnUse" width="20" height="20">
+      <circle cx="2" cy="2" r="1.5" fill="#1A1A2E15"/>
+    </pattern>
+  </defs>
+
+  <rect width="800" height="500" fill="#FAFAFA"/>
+  <rect width="800" height="500" fill="url(#dots)"/>
+  <rect x="0" y="0" width="6" height="500" fill="#1A1A2E"/>
+  <rect x="6" y="0" width="794" height="80" fill="#1A1A2E"/>
+  <text x="40" y="32" font-family="Georgia, serif" font-size="11" fill="#888" letter-spacing="3">PERSONA 04</text>
+  <text x="40" y="60" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="white">L'Admin Modérateur</text>
+  <!-- Badge admin -->
+  <rect x="600" y="26" width="80" height="24" rx="4" fill="#5B4FE9"/>
+  <text x="640" y="43" text-anchor="middle" font-family="monospace" font-size="10" fill="white">ADMIN</text>
+  <text x="700" y="48" text-anchor="middle" font-family="Georgia, serif" font-size="11" fill="#88888860">NAKAMA</text>
+
+  <!-- Avatar -->
+  <rect x="40" y="108" width="120" height="150" rx="4" fill="#E8E8E8" stroke="#55555540" stroke-width="1"/>
+  <circle cx="100" cy="160" r="28" fill="#C8C8C8" stroke="none"/>
+  <ellipse cx="100" cy="210" rx="38" ry="22" fill="#C8C8C8"/>
+  <text x="100" y="248" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">Avatar</text>
+
+  <!-- Infos -->
+  <text x="190" y="128" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#1A1A2E">Alex, 29 ans</text>
+  <text x="190" y="150" font-family="Georgia, serif" font-size="13" fill="#888">Développeur back-end · Nantes · Créateur de l'app</text>
+  <line x1="190" y1="160" x2="760" y2="160" stroke="#55555530" stroke-width="1"/>
+
+  <!-- Tags -->
+  <rect x="190" y="170" width="65" height="20" rx="10" fill="#1A1A2E" stroke="none"/>
+  <text x="222" y="184" text-anchor="middle" font-family="monospace" font-size="9" fill="white">Admin</text>
+  <rect x="263" y="170" width="105" height="20" rx="10" fill="#1A1A2E20" stroke="#555" stroke-width="0.75"/>
+  <text x="315" y="184" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">Otaku confirmé</text>
+  <rect x="376" y="170" width="120" height="20" rx="10" fill="#1A1A2E20" stroke="#555" stroke-width="0.75"/>
+  <text x="436" y="184" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">Qualité catalogue</text>
+
+  <!-- Citation -->
+  <rect x="190" y="200" width="550" height="50" rx="4" fill="#1A1A2E05" stroke="#55555530" stroke-width="1"/>
+  <text x="200" y="222" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#555">"Je veux que le catalogue soit fiable. Un anime mal orthographié ou</text>
+  <text x="200" y="240" font-family="Georgia, serif" font-size="13" font-style="italic" fill="#555">avec les mauvais genres, ça ruine l'expérience pour tout le monde."</text>
+
+  <!-- Contexte -->
+  <text x="40" y="295" font-family="monospace" font-size="9" font-weight="bold" fill="#555" letter-spacing="2">CONTEXTE</text>
+  <line x1="40" y1="300" x2="220" y2="300" stroke="#555" stroke-width="0.75"/>
+  <text x="40" y="318" font-family="Georgia, serif" font-size="11" fill="#444">Créateur et mainteneur de l'app</text>
+  <text x="40" y="334" font-family="Georgia, serif" font-size="11" fill="#444">Gère le catalogue et les comptes</text>
+  <text x="40" y="350" font-family="Georgia, serif" font-size="11" fill="#444">Fan d'anime depuis 10 ans</text>
+  <text x="40" y="366" font-family="Georgia, serif" font-size="11" fill="#444">Connaissance technique avancée</text>
+
+  <!-- Frustrations -->
+  <text x="230" y="295" font-family="monospace" font-size="9" font-weight="bold" fill="#E94560" letter-spacing="2">FRUSTRATIONS</text>
+  <line x1="230" y1="300" x2="460" y2="300" stroke="#E9456040" stroke-width="0.75"/>
+  <text x="230" y="318" font-family="Georgia, serif" font-size="11" fill="#444">Données erronées dans le catalogue</text>
+  <text x="230" y="334" font-family="Georgia, serif" font-size="11" fill="#444">Comptes spammeurs à gérer</text>
+  <text x="230" y="350" font-family="Georgia, serif" font-size="11" fill="#444">Genres mal attribués par erreur</text>
+  <text x="230" y="366" font-family="Georgia, serif" font-size="11" fill="#444">Pas de vue globale des stats</text>
+
+  <!-- Attentes -->
+  <text x="470" y="295" font-family="monospace" font-size="9" font-weight="bold" fill="#22C55E" letter-spacing="2">ATTENTES</text>
+  <line x1="470" y1="300" x2="760" y2="300" stroke="#22C55E40" stroke-width="0.75"/>
+  <text x="470" y="318" font-family="Georgia, serif" font-size="11" fill="#444">Interface admin claire et rapide</text>
+  <text x="470" y="334" font-family="Georgia, serif" font-size="11" fill="#444">CRUD complet sur le catalogue</text>
+  <text x="470" y="350" font-family="Georgia, serif" font-size="11" fill="#444">Gestion des rôles utilisateurs</text>
+  <text x="470" y="366" font-family="Georgia, serif" font-size="11" fill="#444">Statistiques de l'application</text>
+
+  <!-- Features -->
+  <text x="40" y="410" font-family="monospace" font-size="9" font-weight="bold" fill="#1A1A2E" letter-spacing="2">FEATURES CLÉS</text>
+  <line x1="40" y1="415" x2="760" y2="415" stroke="#1A1A2E20" stroke-width="0.75"/>
+
+  <rect x="40" y="425" width="130" height="26" rx="4" fill="#1A1A2E"/>
+  <text x="105" y="442" text-anchor="middle" font-family="monospace" font-size="9" fill="white">Admin catalogue</text>
+
+  <rect x="180" y="425" width="130" height="26" rx="4" fill="#1A1A2E"/>
+  <text x="245" y="442" text-anchor="middle" font-family="monospace" font-size="9" fill="white">Manage users</text>
+
+  <rect x="320" y="425" width="130" height="26" rx="4" fill="#1A1A2E"/>
+  <text x="385" y="442" text-anchor="middle" font-family="monospace" font-size="9" fill="white">Manage genres</text>
+
+  <rect x="460" y="425" width="130" height="26" rx="4" fill="#55555530" stroke="#555" stroke-width="0.75"/>
+  <text x="525" y="442" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">Stats dashboard</text>
+
+  <rect x="600" y="425" width="130" height="26" rx="4" fill="#55555315" stroke="#aaa" stroke-width="0.75"/>
+  <text x="665" y="442" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">Hérite actions user</text>
+
+  <text x="760" y="490" text-anchor="end" font-family="monospace" font-size="8" fill="#bbb">NAKAMA — Personas UX · 2025</text>
+</svg>

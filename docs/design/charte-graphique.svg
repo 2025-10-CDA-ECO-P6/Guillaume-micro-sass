@@ -1,0 +1,197 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="920" viewBox="0 0 800 920">
+  <rect width="800" height="920" fill="#FFFFFF"/>
+
+  <!-- HEADER -->
+  <rect x="0" y="0" width="800" height="70" fill="#5B4FE9"/>
+  <text x="40" y="32" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" letter-spacing="3">CHARTE GRAPHIQUE</text>
+  <text x="40" y="54" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">[ NOM APP ]</text>
+  <text x="760" y="43" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="rgba(255,255,255,0.6)">v1.0 — 2025</text>
+
+  <!-- =================== -->
+  <!-- SECTION COULEURS    -->
+  <!-- =================== -->
+  <text x="40" y="108" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#888" letter-spacing="2">PALETTE DE COULEURS</text>
+  <line x1="40" y1="114" x2="760" y2="114" stroke="#eee" stroke-width="1"/>
+
+  <!-- Violet principal -->
+  <rect x="40" y="124" width="134" height="80" rx="6" fill="#5B4FE9"/>
+  <rect x="40" y="184" width="134" height="46" rx="0" fill="#F5F5F5"/>
+  <rect x="40" y="204" width="134" height="26" rx="0" fill="#F5F5F5"/>
+  <rect x="40" y="204" width="134" height="26" rx="6" fill="#F5F5F5"/>
+  <text x="107" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Violet principal</text>
+  <text x="107" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">#5B4FE9</text>
+  <text x="107" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">CTA · Nav · Accent</text>
+  <text x="107" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#aaa">R:91 G:79 B:233</text>
+
+  <!-- Orange accent -->
+  <rect x="186" y="124" width="134" height="80" rx="6" fill="#FF6B35"/>
+  <rect x="186" y="184" width="134" height="46" rx="0" fill="#F5F5F5"/>
+  <rect x="186" y="204" width="134" height="26" rx="0" fill="#F5F5F5"/>
+  <rect x="186" y="204" width="134" height="26" rx="6" fill="#F5F5F5"/>
+  <text x="253" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Orange accent</text>
+  <text x="253" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">#FF6B35</text>
+  <text x="253" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">Badges · Scores</text>
+  <text x="253" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#aaa">R:255 G:107 B:53</text>
+
+  <!-- Nuit texte -->
+  <rect x="332" y="124" width="134" height="80" rx="6" fill="#1A1A2E"/>
+  <rect x="332" y="184" width="134" height="46" rx="0" fill="#F5F5F5"/>
+  <rect x="332" y="204" width="134" height="26" rx="0" fill="#F5F5F5"/>
+  <rect x="332" y="204" width="134" height="26" rx="6" fill="#F5F5F5"/>
+  <text x="399" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Nuit (texte)</text>
+  <text x="399" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="rgba(255,255,255,0.7)">#1A1A2E</text>
+  <text x="399" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">Texte · Headers</text>
+  <text x="399" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#aaa">R:26 G:26 B:46</text>
+
+  <!-- Gris surface -->
+  <rect x="478" y="124" width="134" height="80" rx="6" fill="#F5F5F5" stroke="#eee" stroke-width="1"/>
+  <rect x="478" y="184" width="134" height="46" rx="0" fill="#F5F5F5"/>
+  <rect x="478" y="204" width="134" height="26" rx="6" fill="#F5F5F5"/>
+  <text x="545" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#888">Gris surface</text>
+  <text x="545" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#aaa">#F5F5F5</text>
+  <text x="545" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">Backgrounds · Cards</text>
+  <text x="545" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#aaa">R:245 G:245 B:245</text>
+
+  <!-- Blanc -->
+  <rect x="624" y="124" width="134" height="80" rx="6" fill="#FFFFFF" stroke="#eee" stroke-width="1"/>
+  <rect x="624" y="184" width="134" height="46" rx="0" fill="#F5F5F5"/>
+  <rect x="624" y="204" width="134" height="26" rx="6" fill="#F5F5F5"/>
+  <text x="691" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#ccc">Blanc</text>
+  <text x="691" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ddd">#FFFFFF</text>
+  <text x="691" y="198" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">Background principal</text>
+  <text x="691" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#aaa">R:255 G:255 B:255</text>
+
+  <!-- =================== -->
+  <!-- SECTION TYPO        -->
+  <!-- =================== -->
+  <text x="40" y="268" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#888" letter-spacing="2">TYPOGRAPHIE — INTER</text>
+  <line x1="40" y1="274" x2="760" y2="274" stroke="#eee" stroke-width="1"/>
+
+  <!-- Titre principal -->
+  <rect x="40" y="284" width="720" height="52" rx="4" fill="#F5F5F5"/>
+  <text x="56" y="318" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#1A1A2E">Titre principal</text>
+  <text x="740" y="318" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#aaa">Inter Bold · 28px · #1A1A2E</text>
+
+  <!-- Titre section -->
+  <rect x="40" y="344" width="720" height="44" rx="4" fill="#F5F5F5"/>
+  <text x="56" y="373" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#1A1A2E">Titre de section</text>
+  <text x="740" y="373" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#aaa">Inter SemiBold · 20px · #1A1A2E</text>
+
+  <!-- Texte courant -->
+  <rect x="40" y="396" width="720" height="38" rx="4" fill="#F5F5F5"/>
+  <text x="56" y="420" font-family="Arial, sans-serif" font-size="15" fill="#1A1A2E">Texte courant — description d'un anime ou manga</text>
+  <text x="740" y="420" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#aaa">Inter Regular · 15px · #1A1A2E</text>
+
+  <!-- Texte secondaire -->
+  <rect x="40" y="442" width="720" height="34" rx="4" fill="#F5F5F5"/>
+  <text x="56" y="463" font-family="Arial, sans-serif" font-size="12" fill="#888">Texte secondaire · métadonnées · labels de formulaire</text>
+  <text x="740" y="463" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#aaa">Inter Regular · 12px · #888888</text>
+
+  <!-- =================== -->
+  <!-- SECTION BOUTONS     -->
+  <!-- =================== -->
+  <text x="40" y="516" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#888" letter-spacing="2">BOUTONS &amp; BADGES</text>
+  <line x1="40" y1="522" x2="760" y2="522" stroke="#eee" stroke-width="1"/>
+
+  <rect x="40" y="532" width="720" height="72" rx="4" fill="#F5F5F5"/>
+
+  <!-- Boutons -->
+  <rect x="60" y="550" width="110" height="34" rx="6" fill="#5B4FE9"/>
+  <text x="115" y="572" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">+ Ajouter</text>
+
+  <rect x="184" y="550" width="110" height="34" rx="6" fill="white" stroke="#5B4FE9" stroke-width="1.5"/>
+  <text x="239" y="572" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#5B4FE9">Voir tout</text>
+
+  <rect x="308" y="550" width="130" height="34" rx="6" fill="#FF6B35"/>
+  <text x="373" y="572" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">Sauvegarder</text>
+
+  <!-- Badges -->
+  <rect x="460" y="556" width="70" height="22" rx="11" fill="#5B4FE911"/>
+  <text x="495" y="571" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#5B4FE9">En cours</text>
+
+  <rect x="540" y="556" width="62" height="22" rx="11" fill="#22c55e22"/>
+  <text x="571" y="571" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#16a34a">Terminé</text>
+
+  <rect x="612" y="556" width="72" height="22" rx="11" fill="#FF6B3522"/>
+  <text x="648" y="571" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e85d1e">Abandonné</text>
+
+  <rect x="694" y="556" width="50" height="22" rx="11" fill="#f0f0f0"/>
+  <text x="719" y="571" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">À voir</text>
+
+  <!-- =================== -->
+  <!-- SECTION CARDS       -->
+  <!-- =================== -->
+  <text x="40" y="632" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#888" letter-spacing="2">COMPOSANTS — CARD ANIME / MANGA</text>
+  <line x1="40" y1="638" x2="760" y2="638" stroke="#eee" stroke-width="1"/>
+
+  <!-- Card exemple -->
+  <rect x="40" y="648" width="150" height="210" rx="10" fill="white" stroke="#eee" stroke-width="1"/>
+  <rect x="40" y="648" width="150" height="120" rx="10" fill="#F5F5F5"/>
+  <rect x="40" y="720" width="150" height="28" fill="#F5F5F5"/>
+  <line x1="55" y1="696" x2="175" y2="696" stroke="#ddd" stroke-width="1"/>
+  <line x1="55" y1="706" x2="165" y2="706" stroke="#ddd" stroke-width="1"/>
+  <line x1="55" y1="716" x2="155" y2="716" stroke="#ddd" stroke-width="1"/>
+  <!-- Image placeholder hatch -->
+  <rect x="40" y="648" width="150" height="75" rx="10" fill="none"/>
+  <line x1="40" y1="678" x2="90" y2="648" stroke="#ddd" stroke-width="1"/>
+  <line x1="40" y1="698" x2="110" y2="648" stroke="#ddd" stroke-width="1"/>
+  <line x1="40" y1="718" x2="130" y2="648" stroke="#ddd" stroke-width="1"/>
+  <line x1="50" y1="723" x2="150" y2="648" stroke="#ddd" stroke-width="1"/>
+  <line x1="70" y1="723" x2="170" y2="648" stroke="#ddd" stroke-width="1"/>
+  <line x1="90" y1="723" x2="190" y2="648" stroke="#ddd" stroke-width="1"/>
+  <rect x="40" y="648" width="150" height="75" fill="none" stroke="none"/>
+  <!-- Clip -->
+  <rect x="40" y="723" width="150" height="5" fill="white"/>
+  <!-- Titre + sous-titre -->
+  <rect x="52" y="736" width="126" height="10" rx="2" fill="#1A1A2E22"/>
+  <rect x="52" y="752" width="90" height="8" rx="2" fill="#1A1A2E11"/>
+  <!-- Progress bar -->
+  <rect x="52" y="768" width="126" height="5" rx="2" fill="#eee"/>
+  <rect x="52" y="768" width="72" height="5" rx="2" fill="#5B4FE9"/>
+  <!-- Badge statut -->
+  <rect x="52" y="780" width="62" height="18" rx="9" fill="#5B4FE911"/>
+  <text x="83" y="793" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#5B4FE9">En cours</text>
+  <!-- Score -->
+  <text x="160" y="793" text-anchor="end" font-family="Arial, sans-serif" font-size="11" fill="#FF6B35">★★★☆☆</text>
+
+  <!-- Annotations card -->
+  <line x1="195" y1="685" x2="250" y2="670" stroke="#aaa" stroke-width="0.75" stroke-dasharray="3 2"/>
+  <text x="255" y="668" font-family="Arial, sans-serif" font-size="10" fill="#888">Image cover (ratio 2:3)</text>
+
+  <line x1="195" y1="745" x2="250" y2="745" stroke="#aaa" stroke-width="0.75" stroke-dasharray="3 2"/>
+  <text x="255" y="749" font-family="Arial, sans-serif" font-size="10" fill="#888">Titre + sous-titre</text>
+
+  <line x1="195" y1="771" x2="250" y2="771" stroke="#aaa" stroke-width="0.75" stroke-dasharray="3 2"/>
+  <text x="255" y="775" font-family="Arial, sans-serif" font-size="10" fill="#888">Barre de progression</text>
+
+  <line x1="195" y1="789" x2="250" y2="800" stroke="#aaa" stroke-width="0.75" stroke-dasharray="3 2"/>
+  <text x="255" y="804" font-family="Arial, sans-serif" font-size="10" fill="#888">Badge statut + score</text>
+
+  <!-- Specs card -->
+  <rect x="460" y="648" width="300" height="200" rx="6" fill="#F5F5F5"/>
+  <text x="476" y="672" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1A1A2E">Spécifications card</text>
+  <line x1="476" y1="680" x2="744" y2="680" stroke="#ddd" stroke-width="0.75"/>
+  <text x="476" y="700" font-family="Arial, sans-serif" font-size="10" fill="#555">Border-radius</text>
+  <text x="744" y="700" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#888">10px</text>
+  <text x="476" y="718" font-family="Arial, sans-serif" font-size="10" fill="#555">Border</text>
+  <text x="744" y="718" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#888">0.5px #EEEEEE</text>
+  <text x="476" y="736" font-family="Arial, sans-serif" font-size="10" fill="#555">Background</text>
+  <text x="744" y="736" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#888">#FFFFFF</text>
+  <text x="476" y="754" font-family="Arial, sans-serif" font-size="10" fill="#555">Padding</text>
+  <text x="744" y="754" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#888">12px</text>
+  <text x="476" y="772" font-family="Arial, sans-serif" font-size="10" fill="#555">Progress bar color</text>
+  <text x="744" y="772" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#5B4FE9">#5B4FE9</text>
+  <text x="476" y="790" font-family="Arial, sans-serif" font-size="10" fill="#555">Score color</text>
+  <text x="744" y="790" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#FF6B35">#FF6B35</text>
+  <text x="476" y="808" font-family="Arial, sans-serif" font-size="10" fill="#555">Icônes style</text>
+  <text x="744" y="808" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#888">Outline (Lucide / Tabler)</text>
+  <text x="476" y="826" font-family="Arial, sans-serif" font-size="10" fill="#555">Style général</text>
+  <text x="744" y="826" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#888">Flat · Aéré · Minimaliste</text>
+
+  <!-- FOOTER -->
+  <rect x="0" y="880" width="800" height="40" fill="#F5F5F5"/>
+  <line x1="0" y1="880" x2="800" y2="880" stroke="#eee" stroke-width="1"/>
+  <text x="40" y="905" font-family="Arial, sans-serif" font-size="10" fill="#aaa">Charte graphique — [ NOM APP ] · 2025</text>
+  <text x="760" y="905" text-anchor="end" font-family="Arial, sans-serif" font-size="10" fill="#aaa">Palette Moderne Claire v1.0</text>
+
+</svg>

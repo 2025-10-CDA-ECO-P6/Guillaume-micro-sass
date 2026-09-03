@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8L8 0" stroke="#aaa" stroke-width="0.75" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="390" height="844" fill="white" stroke="#222" stroke-width="2" rx="12"/>
+  <text x="195" y="22" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#333">DASHBOARD — Mobile</text>
+
+  <!-- Status bar -->
+  <rect x="2" y="30" width="386" height="20" fill="#f0f0f0"/>
+  <line x1="2" y1="50" x2="388" y2="50" stroke="#ddd" stroke-width="0.5"/>
+  <text x="20" y="44" font-family="monospace" font-size="8" fill="#555">9:41</text>
+
+  <!-- Navbar -->
+  <rect x="2" y="50" width="386" height="40" fill="white" stroke="none"/>
+  <line x1="2" y1="90" x2="388" y2="90" stroke="#ddd" stroke-width="1"/>
+  <text x="195" y="75" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#333">NAKAMA</text>
+  <circle cx="355" cy="70" r="13" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="355" cy="67" r="5" fill="none" stroke="#333" stroke-width="1"/>
+  <path d="M344 80 Q355 75 366 80" fill="none" stroke="#333" stroke-width="1"/>
+
+  <!-- Stats row 2x2 -->
+  <rect x="10" y="98" width="178" height="52" fill="#f5f5f5" stroke="#333" stroke-width="1"/>
+  <line x1="20" y1="110" x2="178" y2="110" stroke="#ccc" stroke-width="0.75"/>
+  <text x="94" y="140" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#222">42</text>
+
+  <rect x="202" y="98" width="178" height="52" fill="#f5f5f5" stroke="#333" stroke-width="1"/>
+  <line x1="212" y1="110" x2="370" y2="110" stroke="#ccc" stroke-width="0.75"/>
+  <text x="291" y="140" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#222">12</text>
+
+  <rect x="10" y="158" width="178" height="52" fill="#f5f5f5" stroke="#333" stroke-width="1"/>
+  <line x1="20" y1="170" x2="178" y2="170" stroke="#ccc" stroke-width="0.75"/>
+  <text x="94" y="200" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#222">8</text>
+
+  <rect x="202" y="158" width="178" height="52" fill="#f5f5f5" stroke="#333" stroke-width="1"/>
+  <line x1="212" y1="170" x2="370" y2="170" stroke="#ccc" stroke-width="0.75"/>
+  <text x="291" y="200" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#222">3</text>
+
+  <!-- EN COURS -->
+  <text x="12" y="232" font-family="monospace" font-size="10" font-weight="bold" fill="#222">EN COURS</text>
+  <line x1="12" y1="236" x2="378" y2="236" stroke="#333" stroke-width="1"/>
+
+  <!-- Cards en cours — scroll horizontal hint -->
+  <rect x="10" y="244" width="170" height="110" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="10" y="244" width="55" height="110" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="72" y1="258" x2="172" y2="258" stroke="#333" stroke-width="1.5"/>
+  <line x1="72" y1="270" x2="165" y2="270" stroke="#bbb" stroke-width="1"/>
+  <rect x="72" y="280" width="65" height="12" fill="#555" rx="2"/>
+  <text x="104" y="290" text-anchor="middle" font-family="monospace" font-size="7" fill="white">EP. 12 / 24</text>
+  <line x1="72" y1="308" x2="172" y2="308" stroke="#ddd" stroke-width="1"/>
+  <line x1="72" y1="318" x2="155" y2="318" stroke="#ddd" stroke-width="1"/>
+  <line x1="72" y1="345" x2="172" y2="345" stroke="#ddd" stroke-width="1"/>
+
+  <rect x="192" y="244" width="170" height="110" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="192" y="244" width="55" height="110" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="254" y1="258" x2="354" y2="258" stroke="#333" stroke-width="1.5"/>
+  <line x1="254" y1="270" x2="347" y2="270" stroke="#bbb" stroke-width="1"/>
+  <rect x="254" y="280" width="65" height="12" fill="#555" rx="2"/>
+  <text x="286" y="290" text-anchor="middle" font-family="monospace" font-size="7" fill="white">TOME 3 / 10</text>
+
+  <!-- Scroll hint -->
+  <text x="375" y="310" font-family="monospace" font-size="14" fill="#bbb">›</text>
+
+  <!-- À VOIR -->
+  <text x="12" y="378" font-family="monospace" font-size="10" font-weight="bold" fill="#222">À VOIR</text>
+  <line x1="12" y1="382" x2="378" y2="382" stroke="#333" stroke-width="1"/>
+
+  <rect x="10" y="390" width="170" height="80" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="10" y="390" width="40" height="80" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="57" y1="402" x2="172" y2="402" stroke="#333" stroke-width="1.5"/>
+  <line x1="57" y1="414" x2="165" y2="414" stroke="#bbb" stroke-width="1"/>
+
+  <rect x="192" y="390" width="170" height="80" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="192" y="390" width="40" height="80" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="239" y1="402" x2="354" y2="402" stroke="#333" stroke-width="1.5"/>
+  <line x1="239" y1="414" x2="347" y2="414" stroke="#bbb" stroke-width="1"/>
+
+  <!-- TERMINÉ -->
+  <text x="12" y="496" font-family="monospace" font-size="10" font-weight="bold" fill="#222">TERMINÉ</text>
+  <line x1="12" y1="500" x2="378" y2="500" stroke="#333" stroke-width="1"/>
+  <line x1="12" y1="510" x2="370" y2="510" stroke="#ddd" stroke-width="1"/>
+  <line x1="12" y1="522" x2="355" y2="522" stroke="#ddd" stroke-width="1"/>
+  <line x1="12" y1="534" x2="365" y2="534" stroke="#ddd" stroke-width="1"/>
+  <line x1="12" y1="546" x2="340" y2="546" stroke="#ddd" stroke-width="1"/>
+  <text x="195" y="575" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">↓ scroll</text>
+
+  <!-- Bottom navigation -->
+  <line x1="2" y1="794" x2="388" y2="794" stroke="#ddd" stroke-width="1"/>
+  <rect x="2" y="794" width="386" height="48" fill="#f5f5f5" stroke="none"/>
+  <text x="50" y="812" text-anchor="middle" font-family="monospace" font-size="14" fill="#333">🏠</text>
+  <text x="50" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">Accueil</text>
+  <text x="140" y="812" text-anchor="middle" font-family="monospace" font-size="14" fill="#888">🔍</text>
+  <text x="140" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Recherche</text>
+  <text x="250" y="812" text-anchor="middle" font-family="monospace" font-size="14" fill="#888">⭐</text>
+  <text x="250" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Recommandé</text>
+  <text x="340" y="812" text-anchor="middle" font-family="monospace" font-size="14" fill="#888">👤</text>
+  <text x="340" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Profil</text>
+</svg>

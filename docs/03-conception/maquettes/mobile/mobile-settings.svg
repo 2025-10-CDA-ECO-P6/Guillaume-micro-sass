@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8L8 0" stroke="#aaa" stroke-width="0.75" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="390" height="844" fill="white" stroke="#222" stroke-width="2" rx="12"/>
+  <text x="195" y="22" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#333">SETTINGS — Mobile</text>
+
+  <!-- Status bar -->
+  <rect x="2" y="30" width="386" height="20" fill="#f0f0f0"/>
+  <line x1="2" y1="50" x2="388" y2="50" stroke="#ddd" stroke-width="0.5"/>
+  <text x="20" y="44" font-family="monospace" font-size="8" fill="#555">9:41</text>
+
+  <!-- Navbar -->
+  <rect x="2" y="50" width="386" height="36" fill="white"/>
+  <line x1="2" y1="86" x2="388" y2="86" stroke="#ddd" stroke-width="1"/>
+  <text x="22" y="72" font-family="monospace" font-size="9" fill="#555">← retour</text>
+  <text x="195" y="72" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#222">PARAMÈTRES</text>
+
+  <!-- Avatar centré + bouton change -->
+  <circle cx="195" cy="136" r="38" fill="url(#h)" stroke="#333" stroke-width="1.5"/>
+  <rect x="118" y="183" width="154" height="26" fill="#333" stroke="#222" stroke-width="1"/>
+  <text x="195" y="200" text-anchor="middle" font-family="monospace" font-size="8" fill="white">Changer l'avatar</text>
+
+  <!-- Section Profil -->
+  <rect x="10" y="222" width="370" height="22" fill="#f5f5f5" stroke="none"/>
+  <text x="18" y="237" font-family="monospace" font-size="8" font-weight="bold" fill="#888">PROFIL</text>
+  <line x1="10" y1="244" x2="380" y2="244" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Champs -->
+  <text x="18" y="264" font-family="monospace" font-size="8" fill="#888">Pseudo</text>
+  <rect x="10" y="270" width="370" height="34" fill="white" stroke="#ddd" stroke-width="1"/>
+  <line x1="10" y1="270" x2="380" y2="270" stroke="#ddd" stroke-width="0.5"/>
+
+  <text x="18" y="318" font-family="monospace" font-size="8" fill="#888">Email</text>
+  <rect x="10" y="324" width="370" height="34" fill="white" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Section Sécurité -->
+  <rect x="10" y="372" width="370" height="22" fill="#f5f5f5"/>
+  <text x="18" y="387" font-family="monospace" font-size="8" font-weight="bold" fill="#888">SÉCURITÉ</text>
+  <line x1="10" y1="394" x2="380" y2="394" stroke="#ddd" stroke-width="1"/>
+
+  <text x="18" y="414" font-family="monospace" font-size="8" fill="#888">Nouveau mot de passe</text>
+  <rect x="10" y="420" width="370" height="34" fill="white" stroke="#ddd" stroke-width="1"/>
+
+  <text x="18" y="468" font-family="monospace" font-size="8" fill="#888">Confirmer mot de passe</text>
+  <rect x="10" y="474" width="370" height="34" fill="white" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Section Confidentialité -->
+  <rect x="10" y="522" width="370" height="22" fill="#f5f5f5"/>
+  <text x="18" y="537" font-family="monospace" font-size="8" font-weight="bold" fill="#888">CONFIDENTIALITÉ</text>
+  <line x1="10" y1="544" x2="380" y2="544" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Toggle is_public -->
+  <rect x="10" y="550" width="370" height="44" fill="white" stroke="#ddd" stroke-width="1"/>
+  <text x="18" y="570" font-family="monospace" font-size="9" fill="#222">Profil visible publiquement</text>
+  <text x="18" y="585" font-family="monospace" font-size="7.5" fill="#aaa">Les autres peuvent voir votre liste</text>
+  <rect x="320" y="560" width="42" height="22" rx="11" fill="#333" stroke="#222" stroke-width="1"/>
+  <circle cx="353" cy="571" r="8" fill="white" stroke="#555" stroke-width="0.5"/>
+  <text x="370" y="575" font-family="monospace" font-size="7" fill="#555">ON</text>
+
+  <!-- Bouton save -->
+  <rect x="10" y="614" width="370" height="40" fill="#333" stroke="#222" stroke-width="1.5"/>
+  <text x="195" y="639" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="white">SAUVEGARDER</text>
+
+  <!-- Danger zone -->
+  <rect x="10" y="668" width="370" height="22" fill="#f5f5f5"/>
+  <text x="18" y="683" font-family="monospace" font-size="8" font-weight="bold" fill="#888">ZONE DANGEREUSE</text>
+  <line x1="10" y1="690" x2="380" y2="690" stroke="#ddd" stroke-width="1"/>
+  <rect x="10" y="696" width="370" height="34" fill="white" stroke="#ddd" stroke-width="1"/>
+  <text x="195" y="717" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">Supprimer mon compte</text>
+
+  <!-- Bottom nav -->
+  <line x1="2" y1="794" x2="388" y2="794" stroke="#ddd" stroke-width="1"/>
+  <rect x="2" y="794" width="386" height="48" fill="#f5f5f5"/>
+  <text x="50" y="812" text-anchor="middle" font-family="monospace" font-size="13" fill="#888">🏠</text>
+  <text x="140" y="812" text-anchor="middle" font-family="monospace" font-size="13" fill="#888">🔍</text>
+  <text x="250" y="812" text-anchor="middle" font-family="monospace" font-size="13" fill="#888">⭐</text>
+  <text x="340" y="812" text-anchor="middle" font-family="monospace" font-size="13" fill="#333">👤</text>
+  <text x="50" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Accueil</text>
+  <text x="140" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Recherche</text>
+  <text x="250" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#888">Recommandé</text>
+  <text x="340" y="828" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">Profil</text>
+</svg>

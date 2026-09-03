@@ -1,0 +1,154 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1240" height="420" viewBox="0 0 1240 420">
+  <defs>
+    <pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8L8 0" stroke="#aaa" stroke-width="0.75" fill="none"/>
+    </pattern>
+    <pattern id="overlay" patternUnits="userSpaceOnUse" width="6" height="6">
+      <path d="M0 6L6 0" stroke="#888" stroke-width="0.5" fill="none"/>
+    </pattern>
+    <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#333" stroke-width="1.5"/>
+    </marker>
+  </defs>
+  <rect width="1240" height="420" fill="white"/>
+
+  <!-- Labels -->
+  <text x="300" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#333">DETAIL — Page</text>
+  <text x="940" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#333">DETAIL — Modale ouverte</text>
+
+  <!-- Flèche entre états -->
+  <line x1="617" y1="210" x2="633" y2="210" stroke="#333" stroke-width="1.5" marker-end="url(#arr)"/>
+  <text x="625" y="205" text-anchor="middle" font-family="monospace" font-size="8" fill="#666">clic</text>
+
+  <!-- ====================== -->
+  <!-- ÉTAT 1 — PAGE DETAIL   -->
+  <!-- x=10, y=28, w=580, h=382 -->
+  <!-- ====================== -->
+  <rect x="10" y="28" width="580" height="382" fill="white" stroke="#222" stroke-width="2"/>
+
+  <!-- Navbar h=28 -->
+  <rect x="10" y="28" width="580" height="28" fill="#f0f0f0" stroke="#222" stroke-width="1"/>
+  <text x="35" y="46" font-family="monospace" font-size="9" fill="#555">← retour</text>
+  <text x="265" y="46" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#222">NAKAMA</text>
+  <circle cx="570" cy="42" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="570" cy="39" r="4" fill="none" stroke="#333" stroke-width="1"/>
+  <path d="M562 49 Q570 45 578 49" fill="none" stroke="#333" stroke-width="1"/>
+
+  <!-- Content starts at y=56 -->
+  <!-- Image poster -->
+  <rect x="20" y="60" width="100" height="145" fill="url(#h)" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Titre + infos -->
+  <line x1="132" y1="70" x2="582" y2="70" stroke="#222" stroke-width="2.5"/>
+  <line x1="132" y1="83" x2="555" y2="83" stroke="#bbb" stroke-width="1"/>
+  <line x1="132" y1="94" x2="500" y2="94" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Genre tags -->
+  <rect x="132" y="103" width="44" height="13" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="154" y="113" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Action</text>
+  <rect x="182" y="103" width="50" height="13" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="207" y="113" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Shonen</text>
+  <rect x="238" y="103" width="42" height="13" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="259" y="113" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Drama</text>
+
+  <line x1="132" y1="123" x2="582" y2="123" stroke="#999" stroke-width="0.75"/>
+
+  <!-- Progression lecture seule -->
+  <text x="132" y="138" font-family="monospace" font-size="8" font-weight="bold" fill="#222">MA PROGRESSION</text>
+  <rect x="132" y="143" width="340" height="22" fill="#f5f5f5" stroke="#ccc" stroke-width="1"/>
+  <text x="140" y="158" font-family="monospace" font-size="8" fill="#555">En cours  —  Ép. 12 / 24  —  ★★★☆☆</text>
+
+  <!-- CTA -->
+  <rect x="132" y="172" width="200" height="22" fill="#333" stroke="#222" stroke-width="1.5"/>
+  <text x="232" y="187" text-anchor="middle" font-family="monospace" font-size="9" font-weight="bold" fill="white">[ METTRE À JOUR ]</text>
+
+  <!-- Séparateur -->
+  <line x1="10" y1="218" x2="590" y2="218" stroke="#333" stroke-width="1"/>
+
+  <!-- SYNOPSIS -->
+  <text x="20" y="233" font-family="monospace" font-size="9" font-weight="bold" fill="#222">SYNOPSIS</text>
+  <line x1="20" y1="237" x2="582" y2="237" stroke="#555" stroke-width="0.75"/>
+  <line x1="20" y1="247" x2="580" y2="247" stroke="#bbb" stroke-width="1"/>
+  <line x1="20" y1="257" x2="565" y2="257" stroke="#bbb" stroke-width="1"/>
+  <line x1="20" y1="267" x2="578" y2="267" stroke="#bbb" stroke-width="1"/>
+  <line x1="20" y1="277" x2="550" y2="277" stroke="#bbb" stroke-width="1"/>
+  <line x1="20" y1="287" x2="572" y2="287" stroke="#bbb" stroke-width="1"/>
+  <line x1="20" y1="297" x2="530" y2="297" stroke="#bbb" stroke-width="1"/>
+
+  <!-- INFORMATIONS -->
+  <text x="20" y="316" font-family="monospace" font-size="9" font-weight="bold" fill="#222">INFORMATIONS</text>
+  <line x1="20" y1="320" x2="582" y2="320" stroke="#555" stroke-width="0.75"/>
+  <text x="20" y="334" font-family="monospace" font-size="8" fill="#888">Studio :</text>
+  <line x1="68" y1="332" x2="180" y2="332" stroke="#bbb" stroke-width="1"/>
+  <text x="196" y="334" font-family="monospace" font-size="8" fill="#888">Année :</text>
+  <line x1="236" y1="332" x2="320" y2="332" stroke="#bbb" stroke-width="1"/>
+  <text x="336" y="334" font-family="monospace" font-size="8" fill="#888">Épisodes :</text>
+  <line x1="392" y1="332" x2="480" y2="332" stroke="#bbb" stroke-width="1"/>
+  <text x="20" y="350" font-family="monospace" font-size="8" fill="#888">Statut :</text>
+  <line x1="64" y1="348" x2="180" y2="348" stroke="#bbb" stroke-width="1"/>
+  <text x="196" y="350" font-family="monospace" font-size="8" fill="#888">Type :</text>
+  <line x1="232" y1="348" x2="320" y2="348" stroke="#bbb" stroke-width="1"/>
+  <text x="336" y="350" font-family="monospace" font-size="8" fill="#888">Score global :</text>
+  <line x1="406" y1="348" x2="480" y2="348" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Scroll indicator -->
+  <text x="300" y="400" text-anchor="middle" font-family="monospace" font-size="9" fill="#aaa">↓ scroll</text>
+
+  <!-- ====================== -->
+  <!-- ÉTAT 2 — MODALE        -->
+  <!-- x=650, y=28, w=580, h=382 -->
+  <!-- ====================== -->
+  <rect x="650" y="28" width="580" height="382" fill="white" stroke="#222" stroke-width="2"/>
+
+  <!-- Navbar grisée -->
+  <rect x="650" y="28" width="580" height="28" fill="#e0e0e0" stroke="#bbb" stroke-width="1"/>
+  <text x="675" y="46" font-family="monospace" font-size="9" fill="#aaa">← retour</text>
+  <text x="905" y="46" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#aaa">NAKAMA</text>
+
+  <!-- Overlay -->
+  <rect x="650" y="56" width="580" height="354" fill="url(#overlay)" opacity="0.5"/>
+
+  <!-- Modale : centrée dans 580x354, soit x=650+90=740, largeur=400 -->
+  <rect x="740" y="95" width="400" height="280" fill="white" stroke="#222" stroke-width="2"/>
+
+  <!-- Header modale -->
+  <rect x="740" y="95" width="400" height="30" fill="#f0f0f0" stroke="#222" stroke-width="1"/>
+  <text x="928" y="115" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#222">METTRE À JOUR</text>
+  <text x="1126" y="115" font-family="monospace" font-size="13" fill="#555">✕</text>
+
+  <!-- Sous-titre -->
+  <text x="754" y="140" font-family="monospace" font-size="8" fill="#888">Titre de l'anime / manga</text>
+  <line x1="754" y1="146" x2="1130" y2="146" stroke="#eee" stroke-width="1"/>
+
+  <!-- Statut -->
+  <text x="754" y="162" font-family="monospace" font-size="8" fill="#555">Statut</text>
+  <rect x="754" y="167" width="150" height="20" fill="white" stroke="#333" stroke-width="1.5"/>
+  <text x="760" y="181" font-family="monospace" font-size="8" fill="#666">En cours           ▾</text>
+
+  <!-- Épisode -->
+  <text x="754" y="203" font-family="monospace" font-size="8" fill="#555">Épisode actuel</text>
+  <rect x="754" y="208" width="65" height="20" fill="white" stroke="#333" stroke-width="1.5"/>
+  <text x="786" y="222" text-anchor="middle" font-family="monospace" font-size="11" fill="#333">12</text>
+  <text x="826" y="222" font-family="monospace" font-size="8" fill="#aaa">/ 24</text>
+
+  <!-- Score -->
+  <text x="920" y="203" font-family="monospace" font-size="8" fill="#555">Score</text>
+  <rect x="920" y="208" width="200" height="20" fill="white" stroke="#333" stroke-width="1.5"/>
+  <text x="927" y="222" font-family="monospace" font-size="12" fill="#888">★ ★ ★ ☆ ☆</text>
+
+  <!-- Notes -->
+  <text x="754" y="244" font-family="monospace" font-size="8" fill="#555">Note personnelle</text>
+  <rect x="754" y="249" width="366" height="55" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="760" y="263" font-family="monospace" font-size="8" fill="#ccc">Ajouter une note...</text>
+
+  <!-- Séparateur -->
+  <line x1="754" y1="315" x2="1120" y2="315" stroke="#eee" stroke-width="1"/>
+
+  <!-- Boutons -->
+  <rect x="754" y="323" width="150" height="24" fill="#333" stroke="#222" stroke-width="1.5"/>
+  <text x="829" y="339" text-anchor="middle" font-family="monospace" font-size="9" fill="white">[ SAUVEGARDER ]</text>
+
+  <rect x="916" y="323" width="105" height="24" fill="white" stroke="#666" stroke-width="1"/>
+  <text x="968" y="339" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">[ ANNULER ]</text>
+
+</svg>

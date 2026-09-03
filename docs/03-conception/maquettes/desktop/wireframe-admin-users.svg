@@ -1,0 +1,139 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420">
+  <defs>
+    <pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8L8 0" stroke="#aaa" stroke-width="0.75" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="420" fill="white"/>
+  <text x="300" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#333">ADMIN — GESTION DES UTILISATEURS</text>
+
+  <!-- Browser frame -->
+  <rect x="10" y="28" width="580" height="382" fill="white" stroke="#222" stroke-width="2"/>
+  <!-- Navbar -->
+  <rect x="10" y="28" width="580" height="28" fill="#f0f0f0" stroke="#222" stroke-width="1"/>
+  <text x="35" y="46" font-family="monospace" font-size="9" fill="#555">⚙ ADMIN</text>
+  <text x="265" y="46" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#222">NAKAMA</text>
+  <circle cx="570" cy="42" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+
+  <!-- Admin sidebar -->
+  <rect x="10" y="56" width="110" height="354" fill="#f0f0f0" stroke="#ddd" stroke-width="1"/>
+  <text x="65" y="74" text-anchor="middle" font-family="monospace" font-size="8" font-weight="bold" fill="#333">ADMIN PANEL</text>
+  <line x1="15" y1="79" x2="115" y2="79" stroke="#ddd" stroke-width="0.75"/>
+  <text x="65" y="97" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">📋 Catalogue</text>
+  <line x1="15" y1="106" x2="115" y2="106" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="10" y="110" width="110" height="22" fill="#333"/>
+  <text x="65" y="125" text-anchor="middle" font-family="monospace" font-size="8" fill="white">👥 Utilisateurs</text>
+  <line x1="15" y1="134" x2="115" y2="134" stroke="#ddd" stroke-width="0.5"/>
+  <text x="65" y="148" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">🏷️ Genres</text>
+  <line x1="15" y1="156" x2="115" y2="156" stroke="#ddd" stroke-width="0.5"/>
+  <text x="65" y="170" text-anchor="middle" font-family="monospace" font-size="8" fill="#555">📊 Stats</text>
+
+  <!-- Contenu -->
+  <text x="132" y="73" font-family="monospace" font-size="10" font-weight="bold" fill="#222">UTILISATEURS</text>
+
+  <!-- Stats rapides -->
+  <rect x="130" y="78" width="100" height="30" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="180" y="90" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#888">Total</text>
+  <text x="180" y="103" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#222">1 248</text>
+
+  <rect x="238" y="78" width="100" height="30" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="288" y="90" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#888">Actifs</text>
+  <text x="288" y="103" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#222">1 102</text>
+
+  <rect x="346" y="78" width="100" height="30" fill="#f5f5f5" stroke="#ddd" stroke-width="1"/>
+  <text x="396" y="90" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#888">Ce mois</text>
+  <text x="396" y="103" text-anchor="middle" font-family="monospace" font-size="12" font-weight="bold" fill="#222">+43</text>
+
+  <!-- Barre recherche -->
+  <rect x="130" y="116" width="220" height="18" fill="white" stroke="#333" stroke-width="1.5"/>
+  <text x="138" y="128" font-family="monospace" font-size="7.5" fill="#aaa">Rechercher un utilisateur...</text>
+
+  <rect x="358" y="116" width="70" height="18" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="393" y="128" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Rôle ▾</text>
+
+  <rect x="436" y="116" width="70" height="18" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="471" y="128" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Statut ▾</text>
+
+  <!-- Table header -->
+  <rect x="130" y="140" width="452" height="22" fill="#333" stroke="#222" stroke-width="1"/>
+  <text x="155" y="155" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">AVATAR</text>
+  <text x="210" y="155" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">PSEUDO</text>
+  <text x="310" y="155" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">EMAIL</text>
+  <text x="415" y="155" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">RÔLE</text>
+  <text x="465" y="155" font-family="monospace" font-size="7.5" font-weight="bold" fill="white">ACTIONS</text>
+
+  <!-- Rows -->
+  <!-- Row 1 -->
+  <rect x="130" y="162" width="452" height="30" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <circle cx="155" cy="177" r="10" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="175" y1="172" x2="295" y2="172" stroke="#333" stroke-width="1.5"/>
+  <line x1="300" y1="172" x2="405" y2="172" stroke="#bbb" stroke-width="1"/>
+  <rect x="412" y="168" width="35" height="13" fill="#f5f5f5" stroke="#aaa" stroke-width="1" rx="2"/>
+  <text x="429" y="178" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#555">user</text>
+  <rect x="465" y="168" width="26" height="13" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="478" y="178" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="496" y="168" width="26" height="13" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="509" y="178" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🚫</text>
+  <rect x="527" y="168" width="26" height="13" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="540" y="178" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Row 2 admin -->
+  <rect x="130" y="192" width="452" height="30" fill="#f9f9f9" stroke="#ddd" stroke-width="0.5"/>
+  <circle cx="155" cy="207" r="10" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="175" y1="202" x2="295" y2="202" stroke="#333" stroke-width="1.5"/>
+  <line x1="300" y1="202" x2="405" y2="202" stroke="#bbb" stroke-width="1"/>
+  <rect x="412" y="198" width="35" height="13" fill="#333" stroke="#333" stroke-width="1" rx="2"/>
+  <text x="429" y="208" text-anchor="middle" font-family="monospace" font-size="6.5" fill="white">admin</text>
+  <rect x="465" y="198" width="26" height="13" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="478" y="208" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="496" y="198" width="26" height="13" fill="#eee" stroke="#ccc" stroke-width="1"/>
+  <text x="509" y="208" text-anchor="middle" font-family="monospace" font-size="7" fill="#ccc">🚫</text>
+  <rect x="527" y="198" width="26" height="13" fill="#eee" stroke="#ccc" stroke-width="1"/>
+  <text x="540" y="208" text-anchor="middle" font-family="monospace" font-size="7" fill="#ccc">🗑️</text>
+
+  <!-- Row 3 -->
+  <rect x="130" y="222" width="452" height="30" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <circle cx="155" cy="237" r="10" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="175" y1="232" x2="295" y2="232" stroke="#333" stroke-width="1.5"/>
+  <line x1="300" y1="232" x2="405" y2="232" stroke="#bbb" stroke-width="1"/>
+  <rect x="412" y="228" width="35" height="13" fill="#f5f5f5" stroke="#aaa" stroke-width="1" rx="2"/>
+  <text x="429" y="238" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#555">user</text>
+  <rect x="465" y="228" width="26" height="13" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="478" y="238" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="496" y="228" width="26" height="13" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="509" y="238" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🚫</text>
+  <rect x="527" y="228" width="26" height="13" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="540" y="238" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Row 4 banni -->
+  <rect x="130" y="252" width="452" height="30" fill="#fff5f5" stroke="#ddd" stroke-width="0.5"/>
+  <circle cx="155" cy="267" r="10" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="175" y1="262" x2="295" y2="262" stroke="#333" stroke-width="1.5"/>
+  <line x1="300" y1="262" x2="405" y2="262" stroke="#bbb" stroke-width="1"/>
+  <rect x="412" y="258" width="35" height="13" fill="#f5f5f5" stroke="#aaa" stroke-width="1" rx="2"/>
+  <text x="429" y="268" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#555">user</text>
+  <text x="470" y="268" font-family="monospace" font-size="7" fill="#aaa">— banni</text>
+  <rect x="527" y="258" width="26" height="13" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="540" y="268" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Row 5 -->
+  <rect x="130" y="282" width="452" height="30" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <circle cx="155" cy="297" r="10" fill="url(#h)" stroke="#aaa" stroke-width="0.5"/>
+  <line x1="175" y1="292" x2="295" y2="292" stroke="#333" stroke-width="1.5"/>
+  <line x1="300" y1="292" x2="405" y2="292" stroke="#bbb" stroke-width="1"/>
+  <rect x="412" y="288" width="35" height="13" fill="#f5f5f5" stroke="#aaa" stroke-width="1" rx="2"/>
+  <text x="429" y="298" text-anchor="middle" font-family="monospace" font-size="6.5" fill="#555">user</text>
+  <rect x="465" y="288" width="26" height="13" fill="white" stroke="#333" stroke-width="1"/>
+  <text x="478" y="298" text-anchor="middle" font-family="monospace" font-size="7" fill="#333">✏️</text>
+  <rect x="496" y="288" width="26" height="13" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="509" y="298" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🚫</text>
+  <rect x="527" y="288" width="26" height="13" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="540" y="298" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">🗑️</text>
+
+  <!-- Légende actions -->
+  <text x="133" y="330" font-family="monospace" font-size="7.5" fill="#aaa">✏️ Modifier rôle   🚫 Bannir/Débannir   🗑️ Supprimer</text>
+
+  <!-- Pagination -->
+  <text x="356" y="390" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">◀  1  2  3  ...  ▶</text>
+  <text x="133" y="390" font-family="monospace" font-size="8" fill="#aaa">1 248 utilisateurs</text>
+</svg>

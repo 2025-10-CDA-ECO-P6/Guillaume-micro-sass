@@ -1,0 +1,99 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="420" viewBox="0 0 600 420">
+  <defs>
+    <pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8L8 0" stroke="#aaa" stroke-width="0.75" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="600" height="420" fill="white"/>
+  <text x="300" y="18" text-anchor="middle" font-family="monospace" font-size="11" font-weight="bold" fill="#333">PROFIL PUBLIC</text>
+
+  <!-- Browser frame -->
+  <rect x="10" y="28" width="580" height="382" fill="white" stroke="#222" stroke-width="2"/>
+  <!-- Navbar -->
+  <rect x="10" y="28" width="580" height="28" fill="#f0f0f0" stroke="#222" stroke-width="1"/>
+  <text x="35" y="46" font-family="monospace" font-size="9" fill="#555">← retour</text>
+  <text x="265" y="46" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#222">NAKAMA</text>
+  <circle cx="570" cy="42" r="9" fill="none" stroke="#333" stroke-width="1.5"/>
+  <circle cx="570" cy="39" r="4" fill="none" stroke="#333" stroke-width="1"/>
+  <path d="M562 49 Q570 45 578 49" fill="none" stroke="#333" stroke-width="1"/>
+
+  <!-- Avatar + infos utilisateur -->
+  <circle cx="65" cy="95" r="28" fill="url(#h)" stroke="#333" stroke-width="1.5"/>
+  <line x1="108" y1="74" x2="400" y2="74" stroke="#222" stroke-width="2"/>
+  <line x1="108" y1="88" x2="320" y2="88" stroke="#bbb" stroke-width="1"/>
+  <line x1="108" y1="100" x2="280" y2="100" stroke="#bbb" stroke-width="1"/>
+  <!-- Badge membre depuis -->
+  <rect x="108" y="108" width="100" height="13" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="158" y="118" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Membre depuis 2024</text>
+  <!-- Badge is_public -->
+  <rect x="215" y="108" width="65" height="13" fill="white" stroke="#555" stroke-width="1" rx="3"/>
+  <text x="247" y="118" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#555">Profil public</text>
+
+  <!-- Stats -->
+  <line x1="20" y1="135" x2="580" y2="135" stroke="#333" stroke-width="1"/>
+  <rect x="20" y="142" width="128" height="38" fill="#f5f5f5" stroke="#333" stroke-width="1"/>
+  <line x1="30" y1="152" x2="138" y2="152" stroke="#ccc" stroke-width="0.75"/>
+  <text x="84" y="172" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#222">38</text>
+
+  <rect x="155" y="142" width="128" height="38" fill="#f5f5f5" stroke="#333" stroke-width="1"/>
+  <line x1="165" y1="152" x2="273" y2="152" stroke="#ccc" stroke-width="0.75"/>
+  <text x="219" y="172" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#222">14</text>
+
+  <rect x="290" y="142" width="128" height="38" fill="#f5f5f5" stroke="#333" stroke-width="1"/>
+  <line x1="300" y1="152" x2="408" y2="152" stroke="#ccc" stroke-width="0.75"/>
+  <text x="354" y="172" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#222">6</text>
+
+  <rect x="425" y="142" width="128" height="38" fill="#f5f5f5" stroke="#333" stroke-width="1"/>
+  <line x1="435" y1="152" x2="543" y2="152" stroke="#ccc" stroke-width="0.75"/>
+  <text x="489" y="172" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#222">2</text>
+
+  <!-- Tabs liste anime/manga -->
+  <rect x="20" y="192" width="90" height="20" fill="#333" stroke="#222" stroke-width="1"/>
+  <text x="65" y="206" text-anchor="middle" font-family="monospace" font-size="8" fill="white">ANIMES</text>
+  <rect x="115" y="192" width="90" height="20" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="160" y="206" text-anchor="middle" font-family="monospace" font-size="8" fill="#666">MANGAS</text>
+
+  <!-- Read-only badge -->
+  <rect x="460" y="194" width="112" height="16" fill="#f5f5f5" stroke="#aaa" stroke-width="1" rx="3"/>
+  <text x="516" y="205" text-anchor="middle" font-family="monospace" font-size="7.5" fill="#888">👁 Lecture seule</text>
+
+  <!-- Liste cards -->
+  <line x1="20" y1="218" x2="580" y2="218" stroke="#333" stroke-width="1"/>
+
+  <!-- Card 1 -->
+  <rect x="20" y="224" width="172" height="70" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="20" y="224" width="45" height="70" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="72" y1="235" x2="185" y2="235" stroke="#333" stroke-width="1.5"/>
+  <line x1="72" y1="247" x2="178" y2="247" stroke="#bbb" stroke-width="1"/>
+  <rect x="72" y="256" width="55" height="11" fill="#555" rx="2"/>
+  <text x="99" y="265" text-anchor="middle" font-family="monospace" font-size="7" fill="white">TERMINÉ</text>
+  <text x="160" y="265" font-family="monospace" font-size="9" fill="#555">★★★★☆</text>
+
+  <!-- Card 2 -->
+  <rect x="200" y="224" width="172" height="70" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="200" y="224" width="45" height="70" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="252" y1="235" x2="365" y2="235" stroke="#333" stroke-width="1.5"/>
+  <line x1="252" y1="247" x2="358" y2="247" stroke="#bbb" stroke-width="1"/>
+  <rect x="252" y="256" width="55" height="11" fill="#555" rx="2"/>
+  <text x="279" y="265" text-anchor="middle" font-family="monospace" font-size="7" fill="white">EN COURS</text>
+  <text x="340" y="265" font-family="monospace" font-size="9" fill="#555">★★★☆☆</text>
+
+  <!-- Card 3 -->
+  <rect x="380" y="224" width="172" height="70" fill="white" stroke="#333" stroke-width="1"/>
+  <rect x="380" y="224" width="45" height="70" fill="url(#h)" stroke="#555" stroke-width="0.75"/>
+  <line x1="432" y1="235" x2="545" y2="235" stroke="#333" stroke-width="1.5"/>
+  <line x1="432" y1="247" x2="538" y2="247" stroke="#bbb" stroke-width="1"/>
+  <rect x="432" y="256" width="55" height="11" fill="#555" rx="2"/>
+  <text x="459" y="265" text-anchor="middle" font-family="monospace" font-size="7" fill="white">TERMINÉ</text>
+  <text x="520" y="265" font-family="monospace" font-size="9" fill="#555">★★★★★</text>
+
+  <!-- Notes publiques -->
+  <line x1="20" y1="304" x2="580" y2="304" stroke="#333" stroke-width="1"/>
+  <text x="20" y="318" font-family="monospace" font-size="9" font-weight="bold" fill="#222">NOTES PUBLIQUES</text>
+  <rect x="20" y="324" width="555" height="40" fill="#f5f5f5" stroke="#aaa" stroke-width="1"/>
+  <line x1="30" y1="335" x2="560" y2="335" stroke="#bbb" stroke-width="1"/>
+  <line x1="30" y1="347" x2="480" y2="347" stroke="#bbb" stroke-width="1"/>
+
+  <!-- Pagination -->
+  <text x="300" y="390" text-anchor="middle" font-family="monospace" font-size="9" fill="#555">◀  1  2  3  ▶</text>
+</svg>

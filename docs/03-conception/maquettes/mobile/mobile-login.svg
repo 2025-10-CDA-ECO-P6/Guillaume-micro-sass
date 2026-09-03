@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="390" height="844" viewBox="0 0 390 844">
+  <defs>
+    <pattern id="h" patternUnits="userSpaceOnUse" width="8" height="8">
+      <path d="M0 8L8 0" stroke="#aaa" stroke-width="0.75" fill="none"/>
+    </pattern>
+  </defs>
+  <rect width="390" height="844" fill="white" stroke="#222" stroke-width="2" rx="12"/>
+  <text x="195" y="22" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="#333">LOGIN / REGISTER — Mobile</text>
+
+  <!-- Status bar -->
+  <rect x="2" y="30" width="386" height="20" fill="#f0f0f0" stroke="none"/>
+  <line x1="2" y1="50" x2="388" y2="50" stroke="#ddd" stroke-width="0.5"/>
+  <text x="20" y="44" font-family="monospace" font-size="8" fill="#555">9:41</text>
+  <line x1="330" y1="36" x2="370" y2="36" stroke="#333" stroke-width="2"/>
+  <line x1="330" y1="40" x2="360" y2="40" stroke="#333" stroke-width="2"/>
+  <line x1="330" y1="44" x2="350" y2="44" stroke="#333" stroke-width="2"/>
+
+  <!-- Content -->
+  <!-- Logo centré -->
+  <rect x="145" y="100" width="100" height="40" fill="#f5f5f5" stroke="#333" stroke-width="1" rx="4"/>
+  <text x="195" y="126" text-anchor="middle" font-family="monospace" font-size="14" font-weight="bold" fill="#333">NAKAMA</text>
+
+  <text x="195" y="165" text-anchor="middle" font-family="monospace" font-size="9" fill="#888">Anime &amp; Manga Tracker</text>
+
+  <!-- Tabs -->
+  <rect x="20" y="180" width="168" height="30" fill="#333" stroke="#222" stroke-width="1"/>
+  <text x="104" y="199" text-anchor="middle" font-family="monospace" font-size="9" fill="white">CONNEXION</text>
+  <rect x="202" y="180" width="168" height="30" fill="white" stroke="#aaa" stroke-width="1"/>
+  <text x="286" y="199" text-anchor="middle" font-family="monospace" font-size="9" fill="#666">INSCRIPTION</text>
+
+  <!-- Formulaire -->
+  <text x="22" y="232" font-family="monospace" font-size="9" fill="#888">Email</text>
+  <rect x="20" y="237" width="350" height="36" fill="white" stroke="#333" stroke-width="1.5"/>
+
+  <text x="22" y="292" font-family="monospace" font-size="9" fill="#888">Mot de passe</text>
+  <rect x="20" y="297" width="350" height="36" fill="white" stroke="#333" stroke-width="1.5"/>
+
+  <text x="22" y="348" font-family="monospace" font-size="8" fill="#aaa">Mot de passe oublié ?</text>
+
+  <!-- Bouton -->
+  <rect x="20" y="362" width="350" height="42" fill="#333" stroke="#222" stroke-width="1.5"/>
+  <text x="195" y="388" text-anchor="middle" font-family="monospace" font-size="10" font-weight="bold" fill="white">SE CONNECTER</text>
+
+  <!-- Divider -->
+  <line x1="20" y1="422" x2="160" y2="422" stroke="#ddd" stroke-width="1"/>
+  <text x="195" y="426" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">ou</text>
+  <line x1="230" y1="422" x2="370" y2="422" stroke="#ddd" stroke-width="1"/>
+
+  <!-- Lien inscription -->
+  <text x="195" y="455" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">Pas de compte ? S'inscrire</text>
+
+  <!-- State inscription (ghost) -->
+  <rect x="20" y="490" width="350" height="240" fill="white" stroke="#aaa" stroke-width="1" stroke-dasharray="4 3" rx="4"/>
+  <text x="195" y="515" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">+ Champ pseudo</text>
+  <rect x="40" y="522" width="310" height="30" fill="#f5f5f5" stroke="#ccc" stroke-width="0.75"/>
+  <text x="195" y="555" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">+ Email</text>
+  <rect x="40" y="562" width="310" height="30" fill="#f5f5f5" stroke="#ccc" stroke-width="0.75"/>
+  <text x="195" y="606" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">+ Mot de passe</text>
+  <rect x="40" y="613" width="310" height="30" fill="#f5f5f5" stroke="#ccc" stroke-width="0.75"/>
+  <text x="195" y="657" text-anchor="middle" font-family="monospace" font-size="8" fill="#aaa">+ Confirmation mdp</text>
+  <rect x="40" y="664" width="310" height="30" fill="#f5f5f5" stroke="#ccc" stroke-width="0.75"/>
+  <text x="195" y="712" text-anchor="middle" font-family="monospace" font-size="8" font-style="italic" fill="#aaa">(onglet Inscription)</text>
+
+  <!-- Bottom nav bar -->
+  <line x1="2" y1="794" x2="388" y2="794" stroke="#ddd" stroke-width="1"/>
+  <rect x="2" y="794" width="386" height="48" fill="#f5f5f5" stroke="none"/>
+  <text x="195" y="822" text-anchor="middle" font-family="monospace" font-size="7" fill="#aaa">— — ●</text>
+</svg>

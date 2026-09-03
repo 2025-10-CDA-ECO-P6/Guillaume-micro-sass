@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="200" viewBox="0 0 600 200">
+  <rect width="600" height="200" fill="#1A1A2E" rx="12"/>
+
+  <!-- Torii icon -->
+  <!-- Pilier gauche -->
+  <rect x="120" y="68" width="14" height="72" rx="4" fill="#5B4FE9"/>
+  <!-- Pilier droit -->
+  <rect x="200" y="68" width="14" height="72" rx="4" fill="#5B4FE9"/>
+  <!-- Barre supérieure (orange) -->
+  <rect x="106" y="54" width="122" height="14" rx="6" fill="#FF6B35"/>
+  <!-- Barre secondaire (violet clair) -->
+  <rect x="120" y="70" width="94" height="10" rx="4" fill="#7B72F0"/>
+
+  <!-- Wordmark -->
+  <text x="252" y="100" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="white">[ NOM ]</text>
+  <!-- Sous-titre -->
+  <text x="254" y="124" font-family="Arial, sans-serif" font-size="12" fill="#5B4FE9" letter-spacing="3">ANIME &amp; MANGA TRACKER</text>
+
+  <!-- Ligne décorative sous le sous-titre -->
+  <line x1="254" y1="132" x2="430" y2="132" stroke="#5B4FE922" stroke-width="1"/>
+</svg>

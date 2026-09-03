@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#1A1A2E" rx="40"/>
+  <!-- Pilier gauche -->
+  <rect x="70" y="100" width="14" height="62" rx="4" fill="#5B4FE9"/>
+  <!-- Pilier droit -->
+  <rect x="116" y="100" width="14" height="62" rx="4" fill="#5B4FE9"/>
+  <!-- Barre supérieure orange -->
+  <rect x="56" y="82" width="88" height="14" rx="6" fill="#FF6B35"/>
+  <!-- Barre secondaire -->
+  <rect x="70" y="98" width="60" height="10" rx="4" fill="#7B72F0"/>
+</svg>
