@@ -174,4 +174,4 @@ Deux acteurs : **User** et **Admin** (relation de généralisation — Admin hé
 
 ## 👤 Auteur
 
-Projet réalisé dans le cadre du titre **Concepteur Développeur d'Applications (CDA)** — 2025
+Projet réalisé dans le cadre du titre **Concepteur Développeur d'Applications (CDA)** — 2026/2027
