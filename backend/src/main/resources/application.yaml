@@ -1,3 +1,63 @@
+# =============================================================================
+# Nakama — configuration Spring Boot
+# Aucune valeur secrète ici : tout vient des variables d'environnement.
+# =============================================================================
 spring:
   application:
-    name: backend
+    name: nakama
+
+  # Connexion de l'application : compte nakama_app (lecture/écriture de lignes uniquement)
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/nakama}
+    username: ${DB_APP_USER:nakama_app}
+    password: ${DB_APP_PASSWORD}
+
+  # Migrations : compte nakama_migration (propriétaire du schéma)
+  flyway:
+    enabled: true
+    user: ${DB_MIGRATION_USER:nakama_migration}
+    password: ${DB_MIGRATION_PASSWORD}
+    locations: classpath:db/migration
+
+  jpa:
+    hibernate:
+      ddl-auto: validate          # Flyway crée le schéma, Hibernate vérifie seulement qu'il correspond aux entités
+    open-in-view: false           # pas de requêtes SQL pendant le rendu de la réponse
+    properties:
+      hibernate:
+        jdbc:
+          time_zone: UTC
+
+  data:
+    redis:
+      host: ${REDIS_HOST:localhost}
+      port: 6379
+      password: ${REDIS_PASSWORD}
+
+nakama:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiration-ms: ${JWT_EXPIRATION:86400000}   # 24 h (cahier des charges)
+
+server:
+  port: 8080
+
+---
+# Profil dev : ajoute le jeu d'essai (R__seed_test_data.sql)
+spring:
+  config:
+    activate:
+      on-profile: dev
+  flyway:
+    locations: classpath:db/migration,classpath:db/seed
+  jpa:
+    show-sql: true
+
+---
+# Profil prod : pas de jeu d'essai, pas de SQL dans les logs
+spring:
+  config:
+    activate:
+      on-profile: prod
+  jpa:
+    show-sql: false
