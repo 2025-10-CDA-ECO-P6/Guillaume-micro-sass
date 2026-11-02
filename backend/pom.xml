@@ -11,8 +11,8 @@
 	<groupId>com.nakama</groupId>
 	<artifactId>backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name/>
-	<description/>
+	<name>Nakama</name>
+	<description>Nakama - suivi d'animes et de mangas (API REST)</description>
 	<url/>
 	<licenses>
 		<license/>
@@ -50,11 +50,16 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webmvc</artifactId>
 		</dependency>
+		<!-- Redis : liste noire des JWT révoqués au logout (NoSQL clé/valeur) -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-database-postgresql</artifactId>
 		</dependency>
-
+ 
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
@@ -91,7 +96,7 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-
+ 
 	<build>
 		<plugins>
 			<plugin>
@@ -136,5 +141,6 @@
 			</plugin>
 		</plugins>
 	</build>
-
+ 
 </project>
+ 

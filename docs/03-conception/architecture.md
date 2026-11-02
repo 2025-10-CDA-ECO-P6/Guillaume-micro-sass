@@ -1,5 +1,5 @@
 # Architecture technique
-## [ NOM APP ] — Anime & Manga Tracker
+## Nakama — Anime & Manga Tracker
 
 ---
 
@@ -10,14 +10,20 @@ L'application suit une architecture **client-serveur découplée** en trois couc
 ```
 ┌─────────────────────┐        HTTP/REST       ┌──────────────────────┐        JDBC       ┌──────────────────┐
 │      FRONTEND       │ ─────────────────────► │       BACKEND        │ ────────────────► │    BASE DE       │
-│    Angular 20       │       JSON (DTO)        │   Spring Boot 3.4   │   Hibernate/JPA   │    DONNÉES       │
+│    Angular 20       │       JSON (DTO)        │   Spring Boot 4.0    │   Hibernate/JPA   │    DONNÉES       │
 │    Port 4200        │ ◄───────────────────── │      Port 8080       │ ◄──────────────── │  PostgreSQL 17   │
 └─────────────────────┘                        └──────────────────────┘                   │    Port 5432     │
-                                                        │                                  └──────────────────┘
-                                                 Spring Security
-                                                 JWT Validation
-                                                 Role-based Access
+                                                   │            │                         └──────────────────┘
+                                            Spring Security     │  Lettuce
+                                            JWT Validation      ▼
+                                            Role-based Access  ┌──────────────────┐
+                                                               │      REDIS 7     │
+                                                               │ liste noire JWT  │
+                                                               │ (réseau interne) │
+                                                               └──────────────────┘
 ```
+
+Une quatrième brique, **Redis** (base NoSQL clé/valeur), stocke les tokens révoqués au logout. Elle n'est joignable que par le backend.
 
 ---
 
@@ -58,7 +64,7 @@ src/
 
 ---
 
-## 3. Backend — Spring Boot 3.4
+## 3. Backend — Spring Boot 4.0
 
 ### Rôle
 API REST stateless, gestion des règles métier, authentification JWT, accès base de données via Hibernate/JPA.
@@ -79,7 +85,7 @@ Entity (Hibernate) → PostgreSQL
 
 ### Structure des packages
 ```
-src/main/java/com/nomapp/
+src/main/java/com/nakama/backend/
 ├── config/           # SecurityConfig, JwtConfig, SwaggerConfig
 ├── controller/       # REST controllers
 │   ├── AuthController
@@ -102,7 +108,7 @@ src/main/java/com/nomapp/
 ### Choix techniques justifiés
 | Choix | Justification |
 |---|---|
-| Spring Boot 3.4 | Standard industrie, auto-configuration, démarrage rapide |
+| Spring Boot 4.0 | Standard industrie, auto-configuration, démarrage rapide |
 | Java 21 LTS | Version LTS stable, Virtual Threads disponibles |
 | Spring Security + JWT | Authentification stateless, gestion fine des rôles |
 | Hibernate / JPA | ORM standard Java, intégré à Spring Boot |
@@ -115,21 +121,23 @@ src/main/java/com/nomapp/
 ## 4. Base de données — PostgreSQL 17
 
 ### Rôle
-Stockage relationnel normalisé. 8 tables dérivées du MLD.
+Stockage relationnel normalisé. 9 tables dérivées du MLD, couvrant les trois types de relations : 1-1 (`users` ↔ `user_profiles`), 1-N (`users` → `anime_tracking`), N-N (`animes` ↔ `genres` via `anime_genres`).
 
 ### Schéma simplifié
 ```
-USER ──────────────┬──── ANIME_TRACKING ──── ANIME ──── ANIME_GENRE ──── GENRE
-                   │                                                         │
-                   └──── MANGA_TRACKING ──── MANGA ──── MANGA_GENRE ─────────┘
+user_profiles ── users ──┬── anime_tracking ── animes ── anime_genres ── genres
+      (1-1)              │                                                │
+                         └── manga_tracking ── mangas ── manga_genres ────┘
 ```
 
 ### Migrations Flyway
 ```
-resources/db/migration/
-├── V1__create_tables.sql       # Création des 8 tables
-├── V2__insert_genres.sql       # Données initiales genres
-└── V3__insert_sample_data.sql  # Données de test (dev uniquement)
+resources/db/
+├── migration/
+│   ├── V1__create_tables.sql     # 9 tables, contraintes, index
+│   └── V2__create_triggers.sql   # updated_at auto, progression ≤ total, created_by figé
+└── seed/
+    └── R__seed_test_data.sql     # jeu d'essai, chargé seulement avec le profil dev
 ```
 
 ### Choix techniques justifiés
@@ -137,7 +145,10 @@ resources/db/migration/
 |---|---|
 | PostgreSQL 17 | Robuste, open-source, excellente gestion des relations complexes |
 | Flyway | Versioning du schéma, traçabilité des migrations, intégré à Spring Boot |
-| Pas de triggers | Simplicité : la logique est dans les services Java |
+| Triggers PL/pgSQL ciblés | Les règles métier sont dans les services Java ; la base les revérifie (défense en profondeur) pour 3 règles qu'un CHECK ne peut pas exprimer |
+| Verrou optimiste (`version`) | Deux modifications simultanées d'une même ligne : la seconde échoue en `409` au lieu d'écraser la première |
+| Deux comptes PostgreSQL | Flyway (`nakama_migration`) crée le schéma, l'appli (`nakama_app`) ne lit et n'écrit que des lignes |
+| Redis 7 | Liste noire des JWT révoqués, avec expiration automatique |
 
 ---
 
@@ -148,7 +159,8 @@ resources/db/migration/
 services:
   frontend:     # Angular, port 4200
   backend:      # Spring Boot, port 8080
-  database:     # PostgreSQL, port 5432
+  database:     # PostgreSQL 17, port 5432 (127.0.0.1 uniquement)
+  redis:        # Redis 7, non exposé (réseau interne)
 ```
 
 ### Avantages
@@ -170,8 +182,13 @@ Client Angular                  Backend Spring Boot
      │── GET /api/dashboard ───────────►│
      │   Header: Authorization: Bearer eyJ...
      │                          JwtFilter valide le token
+     │                          + vérifie qu'il n'est pas dans Redis
      │                          Spring Security vérifie le rôle
      │◄── { data: [...] } ─────────────│
+     │                                  │
+     │── POST /auth/logout ────────────►│
+     │                          jti du token → Redis (TTL = temps restant)
+     │◄── 204 No Content ──────────────│
 ```
 
 ### Règles d'accès par endpoint
@@ -182,7 +199,8 @@ Client Angular                  Backend Spring Boot
 | `/api/profile/:pseudo` (GET) | Public si `is_public=true` |
 | `/api/dashboard/**` | Authentifié |
 | `/api/tracking/**` | Authentifié (propriétaire uniquement) |
-| `/api/admin/**` | Admin uniquement |
+| `/api/admin/catalogue/**`, `/api/admin/genres/**` | Modérateur ou Admin |
+| `/api/admin/users/**` | Admin uniquement |
 
 ---
 
@@ -201,20 +219,32 @@ Client Angular                  Backend Spring Boot
 | 401 | Non authentifié |
 | 403 | Non autorisé (rôle insuffisant ou is_banned) |
 | 404 | Ressource introuvable |
-| 409 | Conflit (email déjà utilisé...) |
+| 409 | Conflit (email déjà utilisé, modification concurrente...) |
 | 500 | Erreur serveur |
 
 ---
 
 ## 8. Variables d'environnement
 
+Toutes les valeurs sont dans `.env` (modèle : `.env.example`, seul fichier commité).
+
 ```env
-# Backend
-DB_URL=jdbc:postgresql://localhost:5432/nomapp
-DB_USERNAME=nomapp_user
-DB_PASSWORD=****
-JWT_SECRET=****
-JWT_EXPIRATION=86400000
+# PostgreSQL
+POSTGRES_DB=nakama
+POSTGRES_USER=****               # superuser, admin et sauvegardes
+POSTGRES_PASSWORD=****
+NAKAMA_MIGRATION_PASSWORD=****   # compte Flyway
+NAKAMA_APP_PASSWORD=****         # compte de l'application
+
+# Redis
+REDIS_PASSWORD=****
+
+# JWT
+JWT_SECRET=****                  # openssl rand -base64 48
+JWT_EXPIRATION=86400000          # 24 h
+
+# Profil Spring : dev (avec jeu d'essai) ou prod
+SPRING_PROFILES_ACTIVE=dev
 
 # Frontend
 API_URL=http://localhost:8080/api

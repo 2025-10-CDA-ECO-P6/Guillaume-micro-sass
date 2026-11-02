@@ -1,5 +1,5 @@
 # Expression du besoin
-## [ NOM APP ] — Anime & Manga Tracker
+## Nakama — Anime & Manga Tracker
 
 ---
 
@@ -30,7 +30,7 @@ Les fans d'anime et manga francophones n'ont pas d'outil dédié en **français*
 
 ## 3. La réponse apportée
 
-**[ NOM APP ]** est une application web Micro-SaaS responsive qui permet à chaque utilisateur francophone de :
+**Nakama** est une application web Micro-SaaS responsive qui permet à chaque utilisateur francophone de :
 
 - **Suivre sa progression** sur chaque anime et manga (statut, épisode/tome actuel, score, notes)
 - **Organiser sa liste** par statut : En cours / Terminé / Abandonné / À voir

@@ -1,5 +1,5 @@
 # Cahier des charges fonctionnel & technique
-## [ NOM APP ] — Anime & Manga Tracker
+## Nakama — Anime & Manga Tracker
 
 > *"Ne perds plus le fil, suis ta passion."*
 
@@ -9,7 +9,7 @@
 
 ### 1. Présentation du projet
 
-**Nom :** [ NOM APP ]
+**Nom :** Nakama
 **Slogan :** "Ne perds plus le fil, suis ta passion."
 **Type :** Application web Micro-SaaS responsive (desktop + mobile)
 
@@ -109,7 +109,7 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 4. Sur la page détail, clique sur "Mettre à jour"
 5. Dans la modale : choisit le statut, l'épisode actuel, le score
 6. Sauvegarde
-7. **Résultat :** Entrée créée dans `ANIME_TRACKING`, visible sur le dashboard
+7. **Résultat :** Entrée créée dans `anime_tracking`, visible sur le dashboard
 
 #### Parcours 4 — Mettre à jour sa progression
 **Acteur :** User connecté
@@ -118,7 +118,7 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 3. Clique sur "Mettre à jour"
 4. Modifie l'épisode actuel dans la modale
 5. Sauvegarde
-6. **Résultat :** `ANIME_TRACKING.current_episode` mis à jour, `updated_at` rafraîchi
+6. **Résultat :** `anime_tracking.current_episode` mis à jour, `updated_at` rafraîchi
 
 #### Parcours 5 — Consulter un profil public
 **Acteur :** Visiteur ou User connecté
@@ -127,13 +127,13 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 3. Si `is_public = false` → page "Profil privé"
 4. **Résultat :** Consultation en lecture seule
 
-#### Parcours 6 — Admin ajoute un anime au catalogue
-**Acteur :** Admin connecté
+#### Parcours 6 — Modérateur ajoute un anime au catalogue
+**Acteur :** Modérateur ou Admin connecté
 1. Accède au panel admin `/admin/catalogue`
 2. Clique sur "+ Ajouter entrée"
 3. Remplit le formulaire (titre, studio, genres, synopsis...)
 4. Valide
-5. **Résultat :** Entrée créée dans `ANIME`, `created_by` = user_id de l'admin
+5. **Résultat :** Entrée créée dans `animes`, `created_by` = id du modérateur
 
 #### Parcours 7 — Admin bannit un utilisateur
 **Acteur :** Admin connecté
@@ -152,9 +152,12 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 - Le token JWT expire après 24h
 - Les mots de passe sont hashés avec **BCrypt**
 - Un utilisateur ne peut modifier que ses propres données
-- Seul un admin peut modifier le catalogue et les rôles
+- Seuls les modérateurs et les admins peuvent modifier le catalogue et les genres
+- Seul un admin peut modifier les rôles et bannir
+- Au logout, le token est révoqué (liste noire Redis) et ne peut plus être utilisé
 
 #### Profil & Visibilité
+- À l'inscription, un profil (`user_profiles`) est créé avec le compte, dans la même transaction
 - Par défaut, un nouveau compte a `is_public = true`
 - Si `is_public = false`, le profil est invisible pour tout autre utilisateur
 - Tous les champs de tracking (statut, score, notes) sont publics en lecture si le profil est public
@@ -170,6 +173,7 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 - À chaque modification, `updated_at` est mis à jour automatiquement
 
 #### Catalogue
+- Le `status` de diffusion/publication est un enum : `A_VENIR`, `EN_COURS`, `TERMINE`, `ANNULE`
 - Un anime/manga doit avoir **au moins un genre**
 - `created_by` est défini à la création et **ne peut jamais être modifié**
 - `updated_by` est mis à jour à chaque modification par un admin
@@ -212,13 +216,15 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 ```
 ┌─────────────────┐         ┌──────────────────┐         ┌──────────────┐
 │   FRONTEND      │  HTTP   │    BACKEND       │  JDBC   │   DATABASE   │
-│   Angular 20    │ ──────► │  Spring Boot 3   │ ──────► │ PostgreSQL17 │
+│   Angular 20    │ ──────► │  Spring Boot 4   │ ──────► │ PostgreSQL17 │
 │   Port 4200     │  REST   │  Port 8080       │         │  Port 5432   │
 └─────────────────┘         └──────────────────┘         └──────────────┘
                                      │
-                              Spring Security
-                                 JWT Auth
-                              Hibernate / JPA
+                              Spring Security ──────────► ┌──────────────┐
+                                 JWT Auth                 │   Redis 7    │
+                              Hibernate / JPA             │ tokens       │
+                                                          │ révoqués     │
+                                                          └──────────────┘
 ```
 
 **Flux de communication :**
@@ -250,7 +256,7 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 | Élément | Choix | Version | Justification |
 |---|---|---|---|
 | Langage | Java | 21 (LTS) | Stabilité, performance, maîtrisé en entreprise |
-| Framework | Spring Boot | 3.4.x | Standard industrie, API REST rapide à mettre en place |
+| Framework | Spring Boot | 4.0.x | Standard industrie, API REST rapide à mettre en place |
 | Auth | Spring Security + JWT | dernière stable | Gestion des rôles et sécurisation des endpoints |
 | Validation | Spring Validation | natif | Validation des DTOs |
 | Documentation API | Springdoc OpenAPI | 2.x | Génération automatique Swagger UI |
@@ -261,7 +267,8 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 |---|---|---|---|
 | SGBD | PostgreSQL | 17 | Robuste, modèle relationnel, compatible avec notre MLD normalisé |
 | ORM | Hibernate / JPA | 6.x | Intégré à Spring Boot, mapping objet-relationnel |
-| Migration | Flyway | 10.x | Gestion des versions du schéma SQL |
+| Migration | Flyway | 11.x | Gestion des versions du schéma SQL |
+| NoSQL clé/valeur | Redis | 7.4 | Liste noire des JWT révoqués, expiration automatique des clés |
 
 #### Infrastructure & Outils
 
@@ -409,45 +416,20 @@ Le suivi de progression : statut (En cours / Terminé / Abandonné / À voir), �
 
 ## Récapitulatif des livrables
 
-```
-/
-├── README.md
-├── CAHIER_DES_CHARGES.md         ← ce fichier
-├── docs/
-│   ├── MCD.png
-│   ├── MLD.png
-│   └── UML.png
-├── personas/
-│   ├── persona-01-casual.svg
-│   ├── persona-02-collector.svg
-│   ├── persona-03-otaku.svg
-│   └── persona-04-admin.svg
-├── wireframes/
-│   ├── wireframe-login.svg
-│   ├── wireframe-dashboard.svg
-│   ├── wireframe-search.svg
-│   ├── wireframe-detail-v5.svg
-│   ├── wireframe-profile.svg
-│   ├── wireframe-settings.svg
-│   ├── wireframe-admin-catalogue.svg
-│   ├── wireframe-admin-users.svg
-│   └── mobile/
-│       ├── mobile-login.svg
-│       ├── mobile-dashboard.svg
-│       ├── mobile-search.svg
-│       ├── mobile-detail.svg
-│       ├── mobile-profile.svg
-│       ├── mobile-settings.svg
-│       ├── mobile-admin-catalogue.svg
-│       └── mobile-admin-users.svg
-├── design/
-│   ├── charte-graphique.svg
-│   ├── charte-graphique.pdf
-│   ├── logo-dark.svg
-│   └── logo-icon.svg
-└── slides/
-    └── presentation.pdf
-```
+La structure complète du dépôt est décrite dans le `README.md`. Livrables de conception :
+
+| Livrable | Emplacement |
+|---|---|
+| Cahier des charges, expression du besoin | `docs/01-contexte/` |
+| MCD, MLD, diagramme de cas d'utilisation | `docs/03-conception/mcd/` |
+| Dictionnaire de données | `docs/03-conception/specifications.md` |
+| Script de création de la base (MPD) | `backend/src/main/resources/db/migration/` |
+| Jeu d'essai | `backend/src/main/resources/db/seed/` |
+| Maquettes desktop et mobile, personas | `docs/03-conception/maquettes/` |
+| Architecture technique | `docs/03-conception/architecture.md` |
+| Spécifications de sécurité | `docs/04-securite/securite.md` |
+| Charte graphique, logos | `docs/design/` |
+| Présentation | `docs/Présentation.pdf` |
 
 ---
 
