@@ -1,0 +1,132 @@
+@startuml cas-utilisation
+' Nakama — Diagramme de cas d'utilisation (4 acteurs)
+' Rendu : java -jar plantuml.jar cas-utilisation.puml  (ou extension PlantUML de VS Code)
+left to right direction
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam ArrowColor #1A1A2E
+skinparam ActorBorderColor #1A1A2E
+skinparam ActorBackgroundColor #FFFFFF
+skinparam usecase {
+  BackgroundColor #FFFFFF
+  BorderColor #1A1A2E
+}
+skinparam rectangle {
+  BorderColor #1A1A2E
+  FontSize 16
+}
+skinparam package {
+  BorderColor #B0B0C0
+  FontColor #555566
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+
+title Nakama — Diagramme de cas d'utilisation
+
+actor "Visiteur" as V
+actor "Utilisateur\n(ROLE_USER)" as U
+actor "Modérateur\n(ROLE_MODERATOR)" as M
+actor "Administrateur\n(ROLE_ADMIN)" as A
+
+' Généralisation : chaque acteur hérite des cas du précédent
+V <|-- U
+U <|-- M
+M <|-- A
+
+
+rectangle "Application Nakama" {
+
+  package "Accès public" {
+    usecase "S'inscrire" as UC_REG #E8E6FC
+    usecase "Se connecter" as UC_LOGIN #E8E6FC
+    usecase "Réinitialiser son\nmot de passe" as UC_RESET #E8E6FC
+    usecase "Rechercher un\nanime / manga" as UC_SEARCH #E8E6FC
+    usecase "Filtrer par type,\ngenre, statut" as UC_FILTER #E8E6FC
+    usecase "Consulter une fiche\nanime / manga" as UC_DETAIL #E8E6FC
+    usecase "Consulter un\nprofil public" as UC_PROFILE #E8E6FC
+  }
+
+  package "Espace utilisateur" {
+    usecase "Se déconnecter" as UC_LOGOUT
+    usecase "Ajouter un contenu\nà sa liste" as UC_ADD
+    usecase "Mettre à jour\nsa progression" as UC_PROGRESS
+    usecase "Noter et annoter\n(score, note, favori)" as UC_SCORE
+    usecase "Consulter son\ndashboard" as UC_DASH
+    usecase "Obtenir des\nrecommandations" as UC_RECO
+    usecase "Modifier son profil\n(pseudo, bio, avatar, mdp)" as UC_EDIT
+    usecase "Rendre son profil\nprivé / public" as UC_PRIVACY
+    usecase "Supprimer son\ncompte (RGPD)" as UC_DELETE_ME
+  }
+
+  package "Modération du catalogue" {
+    usecase "Ajouter une entrée\nau catalogue" as UC_CAT_ADD #FFE6DA
+    usecase "Modifier une entrée\ndu catalogue" as UC_CAT_EDIT #FFE6DA
+    usecase "Supprimer une entrée\ndu catalogue" as UC_CAT_DEL #FFE6DA
+    usecase "Associer des genres\n(au moins 1)" as UC_CAT_GENRE #FFE6DA
+    usecase "Gérer les genres" as UC_GENRES #FFE6DA
+  }
+
+  package "Administration des utilisateurs" {
+    usecase "Consulter la liste\ndes utilisateurs" as UC_USERS #FFD2BE
+    usecase "Bannir / débannir\nun utilisateur" as UC_BAN #FFD2BE
+    usecase "Modifier le rôle\nd'un utilisateur" as UC_ROLE #FFD2BE
+    usecase "Supprimer un\nutilisateur" as UC_USER_DEL #FFD2BE
+    usecase "Consulter les\nstatistiques globales" as UC_STATS #FFD2BE
+  }
+}
+
+' Ordre vertical des blocs (liens invisibles)
+V -[hidden]- U
+U -[hidden]- M
+M -[hidden]- A
+
+' --- Visiteur
+V --> UC_REG
+V --> UC_LOGIN
+V --> UC_SEARCH
+V --> UC_DETAIL
+V --> UC_PROFILE
+UC_FILTER .> UC_SEARCH : <<extend>>
+UC_RESET .> UC_LOGIN : <<extend>>
+
+' --- Utilisateur
+U --> UC_LOGOUT
+U --> UC_ADD
+U --> UC_PROGRESS
+U --> UC_DASH
+U --> UC_RECO
+U --> UC_EDIT
+U --> UC_PRIVACY
+U --> UC_DELETE_ME
+UC_SCORE .> UC_PROGRESS : <<extend>>
+
+' --- Modérateur
+M --> UC_CAT_ADD
+M --> UC_CAT_EDIT
+M --> UC_CAT_DEL
+M --> UC_GENRES
+UC_CAT_ADD .> UC_CAT_GENRE : <<include>>
+UC_CAT_EDIT .> UC_CAT_GENRE : <<include>>
+
+' --- Administrateur
+A --> UC_USERS
+A --> UC_BAN
+A --> UC_ROLE
+A --> UC_USER_DEL
+A --> UC_STATS
+UC_BAN .> UC_USERS : <<include>>
+UC_ROLE .> UC_USERS : <<include>>
+UC_USER_DEL .> UC_USERS : <<include>>
+
+
+legend right
+  Généralisation : chaque acteur hérite de tous les cas
+  de l'acteur au-dessus (Admin ⊃ Modérateur ⊃ Utilisateur ⊃ Visiteur).
+  Les cas « Espace utilisateur » et suivants exigent un JWT valide
+  (non révoqué dans Redis). Un compte banni ne peut pas se connecter.
+  Un admin ne peut ni bannir un autre admin, ni se supprimer lui-même.
+endlegend
+@enduml

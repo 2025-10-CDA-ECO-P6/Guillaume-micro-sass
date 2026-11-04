@@ -1,0 +1,75 @@
+@startuml 01-authentification
+' Nakama — Activité : s'authentifier (inscription ou connexion)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam ArrowColor #1A1A2E
+skinparam activity {
+  BackgroundColor #E8E6FC
+  BorderColor #5B4FE9
+  DiamondBackgroundColor #FFE6DA
+  DiamondBorderColor #FF6B35
+  StartColor #1A1A2E
+  EndColor #1A1A2E
+}
+skinparam swimlane {
+  BorderColor #B0B0C0
+  TitleFontColor #1A1A2E
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+title S'authentifier : inscription ou connexion
+
+|Visiteur|
+start
+:Ouvre /login;
+if (A déjà un compte ?) then (oui)
+  :Onglet « Connexion » :
+  saisit email + mot de passe;
+  |Système|
+  if (Email connu et mot de passe\nvalide (BCrypt) ?) then (non)
+    :Affiche « Email ou mot de passe incorrect »;
+    note right: Message identique dans les deux cas :\non ne révèle pas si l'email existe
+    stop
+  else (oui)
+    |Système|
+    if (Compte banni ?) then (oui)
+      :Refuse la connexion (403)
+      « Compte banni »;
+      stop
+    else (non)
+    endif
+  endif
+else (non)
+  |Visiteur|
+  :Onglet « Inscription » :
+  saisit pseudo, email,
+  mot de passe, confirmation;
+  |Système|
+  if (Formulaire valide ?\n(mdp ≥ 8, confirmation identique)) then (non)
+    :Affiche les erreurs
+    sous les champs;
+    stop
+  else (oui)
+  endif
+  |Système|
+  if (Email ou pseudo déjà pris ?) then (oui)
+    :Affiche « déjà utilisé » (409);
+    stop
+  else (non)
+    |Système|
+    :Hache le mot de passe (BCrypt);
+    :Crée le compte (role = USER)
+    et le profil (is_public = true)
+    dans une seule transaction;
+  endif
+endif
+|Système|
+:Génère un JWT (24 h, jti unique);
+:Renvoie le token au navigateur;
+|Visiteur|
+:Arrive sur son dashboard
+(il est maintenant Utilisateur);
+stop
+@enduml

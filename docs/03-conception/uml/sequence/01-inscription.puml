@@ -1,0 +1,84 @@
+@startuml 01-inscription
+' Nakama — Séquence : inscription (US-01, parcours 1)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam responseMessageBelowArrow true
+skinparam sequenceMessageAlign left
+skinparam ArrowColor #1A1A2E
+skinparam sequence {
+  LifeLineBorderColor #8888A0
+  ParticipantBorderColor #5B4FE9
+  ParticipantBackgroundColor #E8E6FC
+  ActorBorderColor #1A1A2E
+  ActorBackgroundColor #FFFFFF
+  DatabaseBorderColor #FF6B35
+  DatabaseBackgroundColor #FFE6DA
+  GroupBorderColor #8888A0
+  BoxBorderColor #B0B0C0
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+autonumber "<b>0."
+
+title Inscription d'un visiteur
+
+actor "Visiteur" as V
+box "Frontend Angular" #FAFAFF
+  participant "RegisterComponent" as F
+  participant "AuthService" as AS
+end box
+box "Backend Spring Boot" #FFFAF7
+  participant "AuthController" as C
+  participant "UserService" as S
+  participant "PasswordEncoder\n(BCrypt, coût 12)" as P
+  participant "JwtUtil" as J
+end box
+database "PostgreSQL" as DB #FFE6DA
+
+V -> F : Saisit pseudo, email,\nmot de passe, confirmation
+F -> F : Validation du formulaire\n(champs requis, email, mdp ≥ 8,\nconfirmation identique)
+alt formulaire invalide
+  F --> V : Messages d'erreur sous les champs
+else formulaire valide
+  F -> AS : register(dto)
+  AS -> C : POST /auth/register\n{ username, email, password }
+  C -> C : @Valid RegisterDto\n(Spring Validation)
+  alt DTO invalide
+    C --> AS : 400 Bad Request
+    AS --> F : erreurs de validation
+    F --> V : Messages d'erreur
+  else DTO valide
+    C -> S : register(dto)
+    S -> DB : SELECT … FROM users\nWHERE email = ? OR username = ?
+    DB --> S : résultat
+    alt email ou pseudo déjà utilisé
+      S --> C : ConflictException
+      C --> AS : 409 Conflict
+      AS --> F : erreur
+      F --> V : « Email ou pseudo déjà utilisé »
+    else disponibles
+      S -> P : encode(password)
+      P --> S : password_hash (60 caractères)
+      group Transaction @Transactional
+        S -> DB : INSERT INTO users\n(username, email, password_hash, role = 'USER')
+        DB --> S : id
+        S -> DB : INSERT INTO user_profiles\n(user_id, is_public = TRUE)
+        DB --> S : OK
+      end
+      note right of DB
+        Si un des deux INSERT échoue,
+        rollback : ni compte, ni profil.
+      end note
+      S -> J : generateToken(user)
+      J --> S : JWT signé HS256\n(jti, user_id, role, email, iat, exp = +24 h)
+      S --> C : AuthResponse
+      C --> AS : 201 Created { token, user }
+      AS -> AS : Stocke le token
+      AS --> F : succès
+      F --> V : Redirection vers /dashboard
+    end
+  end
+end
+@enduml

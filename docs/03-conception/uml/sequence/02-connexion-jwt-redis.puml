@@ -1,0 +1,107 @@
+@startuml 02-connexion-jwt-redis
+' Nakama — Séquence : connexion, requête authentifiée (JWT + Redis) (US-02, parcours 2)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam responseMessageBelowArrow true
+skinparam sequenceMessageAlign left
+skinparam ArrowColor #1A1A2E
+skinparam sequence {
+  LifeLineBorderColor #8888A0
+  ParticipantBorderColor #5B4FE9
+  ParticipantBackgroundColor #E8E6FC
+  ActorBorderColor #1A1A2E
+  ActorBackgroundColor #FFFFFF
+  DatabaseBorderColor #FF6B35
+  DatabaseBackgroundColor #FFE6DA
+  GroupBorderColor #8888A0
+  BoxBorderColor #B0B0C0
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+autonumber "<b>0."
+
+title Connexion et requête authentifiée (JWT + liste noire Redis)
+
+actor "Utilisateur" as U
+box "Frontend Angular" #FAFAFF
+  participant "Pages Angular\n(Login, Dashboard)" as F
+  participant "AuthService" as AS
+  participant "JwtInterceptor" as I
+end box
+box "Backend Spring Boot" #FFFAF7
+  participant "JwtFilter" as JF
+  participant "AuthController" as C
+  participant "AuthService\n(back)" as S
+  participant "PasswordEncoder" as P
+  participant "JwtUtil" as J
+  participant "DashboardController" as D
+end box
+database "Redis\n(liste noire)" as R #FFE6DA
+database "PostgreSQL" as DB #FFE6DA
+
+== 1. Connexion ==
+U -> F : Saisit email + mot de passe
+F -> AS : login(email, password)
+AS -> C : POST /auth/login
+note right of AS : /auth/** est public :\nle JwtFilter laisse passer
+C -> S : authenticate(dto)
+S -> DB : SELECT id, password_hash, role, is_banned\nFROM users WHERE email = ?
+DB --> S : utilisateur (ou rien)
+alt email inconnu
+  S --> C : BadCredentialsException
+  C --> AS : 401 Unauthorized
+  AS --> F : erreur
+  F --> U : « Email ou mot de passe incorrect »
+else email trouvé
+  S -> P : matches(password, password_hash)
+  P --> S : true / false
+  alt mot de passe faux
+    S --> C : BadCredentialsException
+    C --> AS : 401 Unauthorized
+    AS --> F : erreur
+    F --> U : « Email ou mot de passe incorrect »
+  else is_banned = true
+    S --> C : ForbiddenException("Compte banni")
+    C --> AS : 403 Forbidden
+    AS --> F : erreur
+    F --> U : « Compte banni »
+  else identifiants valides
+    S -> J : generateToken(user)
+    J --> S : JWT HS256 { jti = UUID, user_id, role,\nemail, iat, exp = iat + 24 h }
+    S --> C : AuthResponse
+    C --> AS : 200 OK { token, user }
+    AS -> AS : Stocke le token
+    F --> U : Redirection vers /dashboard
+  end
+end
+
+== 2. Requête authentifiée (exemple : dashboard) ==
+U -> F : Ouvre /dashboard\n(AuthGuard : token présent)
+F -> I : GET /api/dashboard
+I -> JF : GET /api/dashboard\nAuthorization: Bearer <token>
+JF -> J : validate(token)
+J --> JF : signature + expiration
+alt signature invalide ou token expiré
+  JF --> I : 401 Unauthorized
+  I --> F : 401
+  F --> U : Redirection vers /login
+else token valide
+  JF -> R : EXISTS jwt:blacklist:<jti>
+  R --> JF : 0 ou 1
+  alt 1 : token révoqué (logout)
+    JF --> I : 401 Unauthorized
+    I --> F : 401
+    F --> U : Redirection vers /login
+  else 0 : token actif
+    JF -> JF : SecurityContext ← user_id, ROLE_xxx
+    JF -> D : requête autorisée
+    D -> DB : SELECT trackings, statistiques\nWHERE user_id = ?
+    DB --> D : données
+    D --> I : 200 OK { stats, listes }
+    I --> F : données
+    F --> U : Affiche le dashboard
+  end
+end
+@enduml

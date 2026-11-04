@@ -1,0 +1,90 @@
+@startuml 04-mise-a-jour-progression
+' Nakama — Séquence : ajouter / mettre à jour sa progression sur un anime (US-17 à US-21, parcours 3 et 4)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam responseMessageBelowArrow true
+skinparam sequenceMessageAlign left
+skinparam ArrowColor #1A1A2E
+skinparam sequence {
+  LifeLineBorderColor #8888A0
+  ParticipantBorderColor #5B4FE9
+  ParticipantBackgroundColor #E8E6FC
+  ActorBorderColor #1A1A2E
+  ActorBackgroundColor #FFFFFF
+  DatabaseBorderColor #FF6B35
+  DatabaseBackgroundColor #FFE6DA
+  GroupBorderColor #8888A0
+  BoxBorderColor #B0B0C0
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+autonumber "<b>0."
+
+title Ajout ou mise à jour de la progression (anime)
+
+actor "Utilisateur" as U
+box "Frontend Angular" #FAFAFF
+  participant "DetailComponent\n+ modale" as F
+  participant "TrackingService" as TS
+end box
+box "Backend Spring Boot" #FFFAF7
+  participant "JwtFilter" as JF
+  participant "TrackingController" as C
+  participant "TrackingService\n(back)" as S
+end box
+database "Redis" as R #FFE6DA
+database "PostgreSQL" as DB #FFE6DA
+
+U -> F : Clique « Mettre à jour »\nsur la page détail
+F --> U : Ouvre la modale (statut, épisode,\nscore, note), pré-remplie si déjà suivi
+U -> F : Modifie puis « Sauvegarder »
+F -> F : Contrôles de saisie\n(épisode ≥ 0, score 1–10)
+F -> TS : saveAnimeTracking(animeId, dto)
+TS -> JF : PUT /api/tracking/anime/{animeId}\nBearer <token>\n{ status, currentEpisode, score, notes, version }
+JF -> R : EXISTS jwt:blacklist:<jti>
+R --> JF : 0
+JF -> C : utilisateur authentifié (user_id)
+C -> S : save(userId, animeId, dto)
+S -> DB : SELECT nb_episodes FROM animes WHERE id = ?
+DB --> S : nb_episodes
+alt anime introuvable
+  S --> C : NotFoundException
+  C --> TS : 404 Not Found
+  TS --> F : erreur
+  F --> U : « Contenu introuvable »
+else currentEpisode > nb_episodes,\nscore hors 1–10 ou ending_date < started_date
+  S --> C : ValidationException
+  C --> TS : 400 Bad Request (message clair)
+  TS --> F : erreur
+  F --> U : Message d'erreur dans la modale
+else données valides
+  S -> DB : SELECT * FROM anime_tracking\nWHERE user_id = ? AND anime_id = ?
+  DB --> S : tracking existant ou rien
+  alt premier suivi (ajout à la liste)
+    S -> DB : INSERT INTO anime_tracking (user_id, anime_id,\nstatus, current_episode, score, notes)
+    DB --> S : OK (created_at automatique)
+    S --> C : tracking créé
+    C --> TS : 201 Created { tracking }
+  else déjà dans la liste
+    S -> DB : UPDATE anime_tracking SET …,\nversion = version + 1\nWHERE id = ? AND version = ?
+    note right of DB
+      Trigger V2 : updated_at rafraîchi,
+      current_episode ≤ nb_episodes revérifié
+      (défense en profondeur).
+    end note
+    alt 0 ligne modifiée (modifié ailleurs entre-temps)
+      S --> C : OptimisticLockException
+      C --> TS : 409 Conflict
+      TS --> F : erreur
+      F --> U : « Modifié depuis un autre appareil,\nrecharge la page »
+    else 1 ligne modifiée
+      S --> C : tracking mis à jour
+      C --> TS : 200 OK { tracking }
+    end
+  end
+  TS --> F : tracking à jour
+  F --> U : Ferme la modale, affiche\n« En cours — Ép. 12 / 24 — ★★★ »
+end
+@enduml

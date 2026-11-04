@@ -1,0 +1,56 @@
+@startuml 05-ajouter-entree-catalogue
+' Nakama — Activité : un modérateur ajoute un anime/manga au catalogue (parcours 6)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam ArrowColor #1A1A2E
+skinparam activity {
+  BackgroundColor #E8E6FC
+  BorderColor #5B4FE9
+  DiamondBackgroundColor #FFE6DA
+  DiamondBorderColor #FF6B35
+  StartColor #1A1A2E
+  EndColor #1A1A2E
+}
+skinparam swimlane {
+  BorderColor #B0B0C0
+  TitleFontColor #1A1A2E
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+title Ajouter une entrée au catalogue (Modérateur ou Admin)
+
+|Modérateur|
+start
+:Ouvre /admin/catalogue;
+|Système|
+if (Rôle MODERATOR ou ADMIN ?) then (non)
+  :Refuse l'accès (403);
+  stop
+else (oui)
+endif
+|Modérateur|
+:Clique « + Ajouter entrée »;
+:Choisit le type (anime ou manga);
+repeat
+  :Remplit le formulaire
+  (titre, synopsis, image, statut,
+  année, studio ou auteur/éditeur,
+  nb épisodes ou tomes);
+  :Sélectionne un ou plusieurs genres;
+  :Valide;
+  |Système|
+repeat while (Titre renseigné et\nau moins 1 genre ?) is (non : message d'erreur)
+-> oui;
+:Enregistre l'entrée
+created_by = id du modérateur;
+:Enregistre les liens avec les genres;
+note right
+  created_by ne pourra plus jamais
+  être modifié (trigger V2)
+end note
+:Affiche l'entrée dans la liste
+du catalogue;
+stop
+@enduml
