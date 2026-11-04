@@ -422,6 +422,7 @@ La structure complète du dépôt est décrite dans le `README.md`. Livrables de
 |---|---|
 | Cahier des charges, expression du besoin | `docs/01-contexte/` |
 | MCD, MLD, diagramme de cas d'utilisation | `docs/03-conception/mcd/` |
+| Diagrammes UML (cas d'utilisation, séquence, activité), enchaînement des maquettes | `docs/03-conception/uml/` |
 | Dictionnaire de données | `docs/03-conception/specifications.md` |
 | Script de création de la base (MPD) | `backend/src/main/resources/db/migration/` |
 | Jeu d'essai | `backend/src/main/resources/db/seed/` |

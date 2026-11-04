@@ -1,0 +1,44 @@
+@startuml 03-consulter-profil
+' Nakama — Activité : consulter un profil (visibilité is_public)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam ArrowColor #1A1A2E
+skinparam activity {
+  BackgroundColor #E8E6FC
+  BorderColor #5B4FE9
+  DiamondBackgroundColor #FFE6DA
+  DiamondBorderColor #FF6B35
+  StartColor #1A1A2E
+  EndColor #1A1A2E
+}
+skinparam swimlane {
+  BorderColor #B0B0C0
+  TitleFontColor #1A1A2E
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+title Consulter le profil d'un membre
+
+|Visiteur ou Utilisateur|
+start
+:Ouvre /profile/:pseudo;
+|Système|
+if (Le pseudo existe ?) then (non)
+  :Affiche « Profil introuvable » (404);
+  stop
+else (oui)
+endif
+if (is_public = true ?) then (oui)
+  :Charge la liste, les statuts,
+  scores et notes publiques;
+  :Affiche le profil en lecture seule;
+elseif (C'est son propre profil\nou c'est un Admin ?) then (oui)
+  :Affiche le profil complet
+  avec la mention « Profil privé »;
+else (non)
+  :Affiche « Ce profil est privé »;
+endif
+stop
+@enduml

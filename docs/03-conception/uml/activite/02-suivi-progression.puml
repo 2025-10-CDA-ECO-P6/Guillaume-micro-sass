@@ -1,0 +1,81 @@
+@startuml 02-suivi-progression
+' Nakama — Activité : ajouter un contenu à sa liste ou mettre à jour sa progression
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam ArrowColor #1A1A2E
+skinparam activity {
+  BackgroundColor #E8E6FC
+  BorderColor #5B4FE9
+  DiamondBackgroundColor #FFE6DA
+  DiamondBorderColor #FF6B35
+  StartColor #1A1A2E
+  EndColor #1A1A2E
+}
+skinparam swimlane {
+  BorderColor #B0B0C0
+  TitleFontColor #1A1A2E
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+title Ajouter à sa liste / mettre à jour sa progression
+
+|Utilisateur|
+start
+if (Point de départ ?) then (recherche)
+  :Recherche un titre;
+  :Ouvre la fiche détail;
+else (dashboard)
+  :Clique une card « En cours »;
+  :Ouvre la fiche détail;
+endif
+:Clique « Mettre à jour »;
+|Système|
+if (Utilisateur connecté\n(JWT valide, non révoqué) ?) then (non)
+  :Redirige vers /login;
+  stop
+else (oui)
+endif
+if (Contenu déjà dans sa liste ?) then (oui)
+  :Ouvre la modale pré-remplie
+  avec la progression actuelle;
+else (non)
+  :Ouvre la modale vide
+  (statut « À voir », épisode 0);
+endif
+|Utilisateur|
+repeat
+  :Choisit statut, épisode / tome + chapitre,
+  score (1–10), note, favori;
+  :Clique « Sauvegarder »;
+  |Système|
+  :Contrôle les règles métier;
+  note right
+    épisode ≤ nb_episodes
+    tome ≤ nb_volumes
+    score entre 1 et 10
+    date de fin ≥ date de début
+  end note
+repeat while (Données valides ?) is (non : message d'erreur)
+-> oui;
+if (Premier suivi ?) then (oui)
+  :Crée la ligne de tracking
+  (created_at automatique);
+else (non)
+  if (Modifié ailleurs entre-temps ?\n(verrou optimiste « version »)) then (oui)
+    :Refuse (409) et demande
+    de recharger la page;
+    stop
+  else (non)
+    |Système|
+    :Met à jour le tracking
+    (updated_at automatique);
+  endif
+endif
+|Système|
+:Ferme la modale;
+:Rafraîchit « Ma progression »
+et les statistiques du dashboard;
+stop
+@enduml

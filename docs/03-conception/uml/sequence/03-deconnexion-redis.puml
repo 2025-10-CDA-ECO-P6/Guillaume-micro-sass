@@ -1,0 +1,69 @@
+@startuml 03-deconnexion-redis
+' Nakama — Séquence : déconnexion avec révocation du JWT dans Redis (US-03)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam responseMessageBelowArrow true
+skinparam sequenceMessageAlign left
+skinparam ArrowColor #1A1A2E
+skinparam sequence {
+  LifeLineBorderColor #8888A0
+  ParticipantBorderColor #5B4FE9
+  ParticipantBackgroundColor #E8E6FC
+  ActorBorderColor #1A1A2E
+  ActorBackgroundColor #FFFFFF
+  DatabaseBorderColor #FF6B35
+  DatabaseBackgroundColor #FFE6DA
+  GroupBorderColor #8888A0
+  BoxBorderColor #B0B0C0
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+autonumber "<b>0."
+
+title Déconnexion : révocation du JWT dans Redis
+
+actor "Utilisateur" as U
+box "Frontend Angular" #FAFAFF
+  participant "Header (menu)" as F
+  participant "AuthService" as AS
+end box
+box "Backend Spring Boot" #FFFAF7
+  participant "JwtFilter" as JF
+  participant "AuthController" as C
+  participant "TokenBlacklistService" as B
+  participant "JwtUtil" as J
+end box
+database "Redis\n(liste noire)" as R #FFE6DA
+
+U -> F : Clique sur « Se déconnecter »
+F -> AS : logout()
+AS -> JF : POST /auth/logout\nAuthorization: Bearer <token>
+JF -> R : EXISTS jwt:blacklist:<jti>
+R --> JF : 0
+JF -> C : requête authentifiée
+C -> B : revoke(token)
+B -> J : getJti(token), getExpiration(token)
+J --> B : jti, exp
+B -> B : ttl = exp − maintenant (en secondes)
+B -> R : SET jwt:blacklist:<jti> <user_id> EX <ttl>
+R --> B : OK
+note right of R
+  La clé disparaît seule à l'expiration
+  du token : la liste noire ne grossit pas.
+  Persistance AOF : un redémarrage de Redis
+  ne réactive pas le token.
+end note
+B --> C : OK
+C --> AS : 204 No Content
+AS -> AS : Supprime le token du navigateur
+AS --> F : déconnecté
+F --> U : Redirection vers /login
+
+== Réutilisation du token révoqué (vol, autre onglet…) ==
+AS -> JF : GET /api/dashboard\nAuthorization: Bearer <ancien token>
+JF -> R : EXISTS jwt:blacklist:<jti>
+R --> JF : 1
+JF --> AS : 401 Unauthorized
+@enduml

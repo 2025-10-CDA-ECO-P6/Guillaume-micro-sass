@@ -121,7 +121,7 @@ Quatre acteurs liés par généralisation : chacun hérite des actions du préc�
 | **Modérateur** (`ROLE_MODERATOR`) | CRUD catalogue animes/mangas, gestion des genres |
 | **Admin** (`ROLE_ADMIN`) | Gestion des utilisateurs (rôle, bannissement), statistiques |
 
-📎 *Voir `docs/03-conception/mcd/UML.png`*
+📎 *Voir `docs/03-conception/uml/` (cas d'utilisation, séquences, activités, enchaînement des maquettes)*
 
 ---
 

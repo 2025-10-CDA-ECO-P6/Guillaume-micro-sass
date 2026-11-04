@@ -1,0 +1,70 @@
+// Nakama — Schéma d'enchaînement des maquettes (desktop)
+// Rendu : dot -Tpng enchainement-maquettes.dot -o enchainement-maquettes.png
+// (les miniatures sont dans le dossier miniatures/, à côté de ce fichier)
+digraph enchainement {
+  graph [rankdir=TB, newrank=true, splines=true, fontname="DejaVu Sans", fontsize=22, labelloc=t, nodesep=0.5, ranksep=1.1, pad=0.4,
+         label=<<b>Nakama — Enchaînement des maquettes</b><br/><font point-size="13">Flèche pleine : navigation · Flèche pointillée : redirection automatique · Cadre pointillé : écran pas encore maquetté</font>>];
+  node  [shape=plain, fontname="DejaVu Sans", fontsize=12];
+  edge  [fontname="DejaVu Sans", fontsize=11, color="#1A1A2E", fontcolor="#1A1A2E", arrowsize=0.8];
+
+  start [shape=circle, style=filled, fillcolor="#1A1A2E", label="", width=0.3, xlabel="Arrivée sur nakama.app"];
+
+  subgraph cluster_public {
+    label=<<b>Accès public</b> · Visiteur>; style="rounded,filled"; fillcolor="#F4F3FE"; color="#5B4FE9"; fontcolor="#5B4FE9";
+    login   [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#5B4FE9"><tr><td><img src="miniatures/login.png"/></td></tr><tr><td><b>Connexion / Inscription</b><br/>/login · /register</td></tr></table>>];
+    search  [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#5B4FE9"><tr><td><img src="miniatures/search.png"/></td></tr><tr><td><b>Recherche</b><br/>/search</td></tr></table>>];
+    detail  [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#5B4FE9"><tr><td><img src="miniatures/detail-page.png"/></td></tr><tr><td><b>Fiche détail</b><br/>/anime/:id · /manga/:id</td></tr></table>>];
+    profile [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#5B4FE9"><tr><td><img src="miniatures/profile.png"/></td></tr><tr><td><b>Profil public</b><br/>/profile/:pseudo<br/><font point-size="10">si is_public = false : « Profil privé »</font></td></tr></table>>];
+  }
+
+  subgraph cluster_user {
+    label=<<b>Espace utilisateur</b> · JWT requis (AuthGuard)>; style="rounded,filled"; fillcolor="#FFF6F1"; color="#FF6B35"; fontcolor="#C84A17";
+    dashboard [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#FF6B35"><tr><td><img src="miniatures/dashboard.png"/></td></tr><tr><td><b>Dashboard</b><br/>/dashboard</td></tr></table>>];
+    modale    [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#FF6B35"><tr><td><img src="miniatures/detail-modale.png"/></td></tr><tr><td><b>Modale « Mettre à jour »</b><br/>sur la fiche détail</td></tr></table>>];
+    settings  [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#FF6B35"><tr><td><img src="miniatures/settings.png"/></td></tr><tr><td><b>Paramètres</b><br/>/settings</td></tr></table>>];
+    reco      [label=<<table border="1" cellborder="0" cellpadding="18" bgcolor="white" color="#FF6B35" style="dashed"><tr><td><b>Recommandations</b><br/>/recommendations<br/><font point-size="10">pas encore maquetté</font></td></tr></table>>];
+    menu      [shape=box, style="rounded,filled", fillcolor="white", color="#FF6B35", label="Menu avatar (header)\nMon profil · Paramètres\nAdministration · Déconnexion"];
+  }
+
+  subgraph cluster_admin {
+    label=<<b>Administration</b> · /admin/**>; style="rounded,filled"; fillcolor="#F5F5F5"; color="#1A1A2E"; fontcolor="#1A1A2E";
+    admcat   [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#1A1A2E"><tr><td><img src="miniatures/admin-catalogue.png"/></td></tr><tr><td><b>Gestion du catalogue</b><br/>/admin/catalogue<br/><font point-size="10">Modérateur ou Admin</font></td></tr></table>>];
+    admgenre [label=<<table border="1" cellborder="0" cellpadding="18" bgcolor="white" color="#1A1A2E" style="dashed"><tr><td><b>Gestion des genres</b><br/>/admin/genres<br/><font point-size="10">Modérateur ou Admin · pas encore maquetté</font></td></tr></table>>];
+    admusers [label=<<table border="1" cellborder="0" cellpadding="4" bgcolor="white" color="#1A1A2E"><tr><td><img src="miniatures/admin-users.png"/></td></tr><tr><td><b>Gestion des utilisateurs</b><br/>/admin/users<br/><font point-size="10">Admin uniquement</font></td></tr></table>>];
+  }
+
+  { rank=same; search; login; }
+  { rank=same; detail; profile; }
+  { rank=same; dashboard; reco; }
+  { rank=same; modale; menu; settings; }
+
+  // Entrée
+  start -> search  [label="parcourir le catalogue"];
+  start -> login   [label="se connecter"];
+
+  // Public
+  login   -> dashboard [label="connexion ou\ninscription réussie", penwidth=2];
+  search  -> detail    [label="clic sur un résultat"];
+  detail  -> search    [label="← retour"];
+  detail  -> login     [label="« Mettre à jour »\nsans être connecté", style=dashed];
+  profile -> detail    [label="clic sur un titre"];
+
+  // Utilisateur
+  dashboard -> detail   [label="clic sur une card"];
+  dashboard -> search   [label="barre de recherche"];
+  dashboard -> reco     [label="onglet « Recommandé »"];
+  reco      -> detail   [label="clic sur une suggestion"];
+  detail    -> modale   [label="« Mettre à jour »\n(connecté)", penwidth=2];
+  modale    -> detail   [label="Sauvegarder / Annuler"];
+  dashboard -> menu     [label="clic avatar"];
+  menu      -> profile  [label="Mon profil"];
+  menu      -> settings [label="Paramètres"];
+  menu      -> admcat   [label="Administration\n(Modérateur, Admin)"];
+  menu      -> login    [label="Déconnexion\n(token révoqué)", style=dashed];
+  settings  -> dashboard [label="Sauvegarder / ← retour"];
+  settings  -> login    [label="Supprimer mon compte", style=dashed];
+
+  // Admin (barre latérale)
+  admcat   -> admgenre [label="menu « Genres »", dir=both];
+  admcat   -> admusers [label="menu « Utilisateurs »\n(Admin uniquement)", dir=both];
+}

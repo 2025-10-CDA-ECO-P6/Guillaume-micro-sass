@@ -1,0 +1,61 @@
+@startuml 06-bannir-utilisateur
+' Nakama — Activité : un admin bannit un utilisateur (parcours 7, US-30)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam ArrowColor #1A1A2E
+skinparam activity {
+  BackgroundColor #E8E6FC
+  BorderColor #5B4FE9
+  DiamondBackgroundColor #FFE6DA
+  DiamondBorderColor #FF6B35
+  StartColor #1A1A2E
+  EndColor #1A1A2E
+}
+skinparam swimlane {
+  BorderColor #B0B0C0
+  TitleFontColor #1A1A2E
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+title Bannir un utilisateur (Admin)
+
+|Administrateur|
+start
+:Ouvre /admin/users;
+|Système|
+if (Rôle ADMIN ?) then (non)
+  :Refuse l'accès (403);
+  stop
+else (oui)
+endif
+|Administrateur|
+:Recherche l'utilisateur
+(pseudo, email, filtre rôle / statut);
+:Clique sur 🚫 Bannir;
+|Système|
+if (La cible est un admin\nou soi-même ?) then (oui)
+  :Refuse : « Impossible de bannir
+  un administrateur »;
+  stop
+else (non)
+endif
+:Demande confirmation;
+|Administrateur|
+if (Confirme ?) then (non)
+  stop
+else (oui)
+endif
+|Système|
+:Passe is_banned à true;
+:Affiche « — banni » dans la liste;
+note right
+  Toute nouvelle tentative de connexion
+  renvoie 403 « Compte banni ».
+  Point à trancher : un token déjà émis
+  reste valide jusqu'à 24 h, sauf si le
+  JwtFilter revérifie is_banned.
+end note
+stop
+@enduml

@@ -1,0 +1,60 @@
+@startuml 04-recommandations
+' Nakama — Activité : obtenir des recommandations (US-27, US-28)
+skinparam defaultFontName "DejaVu Sans"
+skinparam shadowing false
+skinparam ArrowColor #1A1A2E
+skinparam activity {
+  BackgroundColor #E8E6FC
+  BorderColor #5B4FE9
+  DiamondBackgroundColor #FFE6DA
+  DiamondBorderColor #FF6B35
+  StartColor #1A1A2E
+  EndColor #1A1A2E
+}
+skinparam swimlane {
+  BorderColor #B0B0C0
+  TitleFontColor #1A1A2E
+}
+skinparam note {
+  BackgroundColor #F5F5F5
+  BorderColor #B0B0C0
+}
+title Obtenir des recommandations
+
+|Utilisateur|
+start
+:Ouvre la page « Recommandé »;
+|Système|
+:Compte les contenus
+de sa liste;
+if (Au moins 3 contenus dans la liste ?) then (non)
+  :Affiche un message d'onboarding
+  « Ajoute et note au moins 3 titres »
+  avec un lien vers la recherche;
+  stop
+else (oui)
+endif
+|Système|
+:Sélectionne les contenus
+notés ≥ 7 par l'utilisateur;
+:En déduit ses genres préférés
+(anime_genres + manga_genres);
+:Cherche les animes et mangas
+de ces genres;
+:Exclut ceux déjà dans sa liste;
+:Trie par score moyen des membres;
+if (Résultats trouvés ?) then (non)
+  :Affiche « Pas encore de suggestion,
+  note d'autres titres »;
+else (oui)
+  :Affiche les suggestions
+  (20 par page);
+  |Utilisateur|
+  if (Un titre l'intéresse ?) then (oui)
+    :Ouvre la fiche détail
+    et l'ajoute à sa liste;
+  else (non)
+  endif
+endif
+stop
+@enduml
