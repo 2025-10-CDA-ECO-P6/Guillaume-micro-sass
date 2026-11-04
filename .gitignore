@@ -14,3 +14,5 @@ frontend/dist/
 .idea/
 .vscode/
 *.iml
+backups/
+*:Zone.Identifier
